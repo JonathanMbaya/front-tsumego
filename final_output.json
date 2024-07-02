@@ -1,0 +1,3212 @@
+[
+    {
+        "AB": [
+            "eb",
+            "fb",
+            "bc",
+            "cc",
+            "dc",
+            "be"
+        ],
+        "AW": [
+            "da",
+            "ab",
+            "bb",
+            "cb",
+            "db"
+        ],
+        "SZ": "19",
+        "C": "Black to play: Elementary",
+        "SOL": [
+            [
+                "B",
+                "ba",
+                "Correct.",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "ab",
+            "bb",
+            "cb",
+            "db",
+            "eb"
+        ],
+        "AW": [
+            "ca",
+            "ea",
+            "fb",
+            "ac",
+            "bc",
+            "cc",
+            "dc",
+            "ec",
+            "fc"
+        ],
+        "SZ": "19",
+        "C": "Black to play: Elementary",
+        "SOL": [
+            [
+                "B",
+                "ba",
+                "Correct.",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "ea",
+            "ab",
+            "bb",
+            "cb",
+            "db"
+        ],
+        "AW": [
+            "da",
+            "fa",
+            "fb",
+            "ac",
+            "bc",
+            "cc",
+            "dc",
+            "ec"
+        ],
+        "SZ": "19",
+        "C": "Black to play: Elementary",
+        "SOL": [
+            [
+                "B",
+                "eb",
+                "Correct.",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "eb",
+            "fb",
+            "bc",
+            "cc",
+            "dc",
+            "be"
+        ],
+        "AW": [
+            "ba",
+            "ea",
+            "ab",
+            "bb",
+            "cb",
+            "db"
+        ],
+        "SZ": "19",
+        "C": "Black to play: Elementary",
+        "SOL": [
+            [
+                "B",
+                "da",
+                "Correct.",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "bb",
+            "cb",
+            "db",
+            "eb"
+        ],
+        "AW": [
+            "bc",
+            "cc",
+            "dc",
+            "ec",
+            "fc",
+            "gc",
+            "hc",
+            "be"
+        ],
+        "SZ": "19",
+        "C": "Black to play: Elementary",
+        "SOL": [
+            [
+                "B",
+                "ab",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "fb",
+            "hb",
+            "bc",
+            "cc",
+            "dc",
+            "ec",
+            "fc",
+            "be"
+        ],
+        "AW": [
+            "ab",
+            "bb",
+            "cb",
+            "db",
+            "eb"
+        ],
+        "SZ": "19",
+        "C": "Black to play: Elementary",
+        "SOL": [
+            [
+                "B",
+                "ba",
+                "",
+                ""
+            ],
+            [
+                "B",
+                "ea",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "fb",
+            "gb",
+            "bc",
+            "cc",
+            "dc",
+            "ec",
+            "be"
+        ],
+        "AW": [
+            "ba",
+            "fa",
+            "ab",
+            "bb",
+            "cb",
+            "db"
+        ],
+        "SZ": "19",
+        "C": "Black to play: Elementary",
+        "SOL": [
+            [
+                "B",
+                "da",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "ea",
+            "gb",
+            "bc",
+            "cc",
+            "dc",
+            "ec",
+            "fc",
+            "gc",
+            "be"
+        ],
+        "AW": [
+            "ba",
+            "ab",
+            "bb",
+            "cb",
+            "db",
+            "eb"
+        ],
+        "SZ": "19",
+        "C": "Black to play: Elementary",
+        "SOL": [
+            [
+                "B",
+                "da",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "gb",
+            "bc",
+            "cc",
+            "dc",
+            "ec",
+            "fc",
+            "hc",
+            "be"
+        ],
+        "AW": [
+            "ab",
+            "bb",
+            "cb",
+            "db",
+            "eb"
+        ],
+        "SZ": "19",
+        "C": "Black to play: Elementary",
+        "SOL": [
+            [
+                "B",
+                "ba",
+                "",
+                ""
+            ],
+            [
+                "B",
+                "ea",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "fa",
+            "gb",
+            "hb",
+            "bc",
+            "cc",
+            "dc",
+            "ec",
+            "fc",
+            "be"
+        ],
+        "AW": [
+            "ga",
+            "ab",
+            "bb",
+            "cb",
+            "db",
+            "eb",
+            "fb"
+        ],
+        "SZ": "19",
+        "C": "Black to play: Elementary",
+        "SOL": [
+            [
+                "B",
+                "ba",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "fb",
+            "hb",
+            "cc",
+            "dc",
+            "ec",
+            "fc",
+            "bd",
+            "ce"
+        ],
+        "AW": [
+            "bb",
+            "cb",
+            "db",
+            "eb",
+            "bc"
+        ],
+        "SZ": "19",
+        "C": "Black to play: Elementary",
+        "SOL": [
+            [
+                "B",
+                "ba",
+                "",
+                ""
+            ],
+            [
+                "B",
+                "ea",
+                "",
+                ""
+            ],
+            [
+                "B",
+                "ac",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "ea",
+            "bb",
+            "cb",
+            "db",
+            "eb",
+            "ac"
+        ],
+        "AW": [
+            "ca",
+            "fa",
+            "fb",
+            "cc",
+            "dc",
+            "ec",
+            "ad",
+            "bd",
+            "fd"
+        ],
+        "SZ": "19",
+        "C": "Black to play: Elementary",
+        "SOL": [
+            [
+                "B",
+                "ba",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "ba",
+            "ca",
+            "fa",
+            "fb",
+            "cc",
+            "dc",
+            "ec",
+            "ad",
+            "bd",
+            "ce"
+        ],
+        "AW": [
+            "ea",
+            "bb",
+            "cb",
+            "db",
+            "ac",
+            "bc"
+        ],
+        "SZ": "19",
+        "C": "Black to play: Elementary",
+        "SOL": [
+            [
+                "B",
+                "aa",
+                "Correct.",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "bb",
+            "cb",
+            "db",
+            "bc",
+            "bd"
+        ],
+        "AW": [
+            "eb",
+            "cc",
+            "dc",
+            "fc",
+            "be",
+            "ce",
+            "de"
+        ],
+        "SZ": "19",
+        "C": "Black to play: Elementary",
+        "SOL": [
+            [
+                "B",
+                "aa",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "ea",
+            "eb",
+            "cc",
+            "dc",
+            "ec",
+            "bd",
+            "cd",
+            "bf"
+        ],
+        "AW": [
+            "da",
+            "bb",
+            "cb",
+            "db",
+            "ac",
+            "bc"
+        ],
+        "SZ": "19",
+        "C": "Black to play: Elementary",
+        "SOL": [
+            [
+                "B",
+                "ba",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "aa",
+            "ba",
+            "eb",
+            "gb",
+            "cc",
+            "dc",
+            "ec",
+            "cd",
+            "be",
+            "ce",
+            "bg"
+        ],
+        "AW": [
+            "da",
+            "bb",
+            "cb",
+            "db",
+            "bc",
+            "ad",
+            "bd"
+        ],
+        "SZ": "19",
+        "C": "Black to play: Elementary",
+        "SOL": [
+            [
+                "B",
+                "ab",
+                "Correct.",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "da",
+            "bb",
+            "cb",
+            "db",
+            "bc",
+            "ad",
+            "bd"
+        ],
+        "AW": [
+            "aa",
+            "ba",
+            "ca",
+            "ab",
+            "eb",
+            "cc",
+            "dc",
+            "ec",
+            "cd",
+            "be",
+            "ce"
+        ],
+        "SZ": "19",
+        "C": "Black to play: Elementary",
+        "SOL": [
+            [
+                "B",
+                "ac",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "ba",
+            "ca",
+            "eb",
+            "cc",
+            "dc",
+            "ec",
+            "cd",
+            "ae",
+            "be",
+            "ce"
+        ],
+        "AW": [
+            "da",
+            "bb",
+            "cb",
+            "db",
+            "bc",
+            "ad",
+            "bd"
+        ],
+        "SZ": "19",
+        "C": "Black to play: Elementary",
+        "SOL": [
+            [
+                "B",
+                "ab",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "ab",
+            "eb",
+            "dc",
+            "ec",
+            "cd",
+            "be",
+            "ce"
+        ],
+        "AW": [
+            "da",
+            "cb",
+            "db",
+            "bc",
+            "cc",
+            "ad",
+            "bd"
+        ],
+        "SZ": "19",
+        "C": "Black to play: Elementary",
+        "SOL": [
+            [
+                "B",
+                "ba",
+                "Correct.",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "ba",
+            "ca",
+            "ab",
+            "fb",
+            "ac",
+            "cc",
+            "dc",
+            "ec",
+            "fc",
+            "cd",
+            "ae",
+            "be",
+            "ce"
+        ],
+        "AW": [
+            "bb",
+            "cb",
+            "db",
+            "eb",
+            "bc",
+            "ad",
+            "bd"
+        ],
+        "SZ": "19",
+        "C": "Black to play: Elementary",
+        "SOL": [
+            [
+                "B",
+                "ea",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "ba",
+            "ca",
+            "fb",
+            "hb",
+            "dc",
+            "ec",
+            "fc",
+            "cd",
+            "ae",
+            "be",
+            "ce"
+        ],
+        "AW": [
+            "da",
+            "bb",
+            "db",
+            "eb",
+            "bc",
+            "cc",
+            "ad",
+            "bd"
+        ],
+        "SZ": "19",
+        "C": "Black to play: Elementary",
+        "SOL": [
+            [
+                "B",
+                "ab",
+                "Correct.",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "ba",
+            "ea",
+            "cb",
+            "db",
+            "eb"
+        ],
+        "AW": [
+            "da",
+            "fb",
+            "cc",
+            "dc",
+            "ec",
+            "fc",
+            "ad",
+            "bd"
+        ],
+        "SZ": "19",
+        "C": "Black to play: Elementary",
+        "SOL": [
+            [
+                "B",
+                "ab",
+                "Correct.",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "aa",
+            "ea",
+            "ab",
+            "cb",
+            "db",
+            "eb"
+        ],
+        "AW": [
+            "ba",
+            "da",
+            "fb",
+            "cc",
+            "dc",
+            "ec",
+            "fc",
+            "ad",
+            "bd"
+        ],
+        "SZ": "19",
+        "C": "Black to play: Elementary",
+        "SOL": [
+            [
+                "B",
+                "bb",
+                "Correct.",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "aa",
+            "ca",
+            "ea",
+            "cb",
+            "db",
+            "eb",
+            "bc"
+        ],
+        "AW": [
+            "bb",
+            "fb",
+            "dc",
+            "ec",
+            "gc",
+            "ad",
+            "bd",
+            "cd"
+        ],
+        "SZ": "19",
+        "C": "Black to play: Elementary",
+        "SOL": [
+            [
+                "B",
+                "cc",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "ca",
+            "ab",
+            "cb",
+            "db",
+            "eb",
+            "ac",
+            "bc",
+            "bd"
+        ],
+        "AW": [
+            "ba",
+            "bb",
+            "fb",
+            "hb",
+            "cc",
+            "ec",
+            "fc",
+            "ad",
+            "cd",
+            "ae",
+            "be",
+            "ce"
+        ],
+        "SZ": "19",
+        "C": "Black to play: Elementary",
+        "SOL": [
+            [
+                "B",
+                "ea",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "ab",
+            "cb",
+            "db",
+            "ac",
+            "cc",
+            "bd"
+        ],
+        "AW": [
+            "eb",
+            "dc",
+            "ec",
+            "ad",
+            "cd",
+            "ae",
+            "be",
+            "ce"
+        ],
+        "SZ": "19",
+        "C": "Black to play: Elementary",
+        "SOL": [
+            [
+                "B",
+                "ba",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "ca",
+            "fb",
+            "ec",
+            "gc",
+            "ad",
+            "bd",
+            "cd",
+            "dd"
+        ],
+        "AW": [
+            "ea",
+            "ab",
+            "cb",
+            "eb",
+            "ac",
+            "cc",
+            "dc"
+        ],
+        "SZ": "19",
+        "C": "Black to play: Elementary",
+        "SOL": [
+            [
+                "B",
+                "ba",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "ab",
+            "bb",
+            "db",
+            "eb",
+            "cc",
+            "cd"
+        ],
+        "AW": [
+            "fa",
+            "cb",
+            "fb",
+            "dc",
+            "ec",
+            "fc",
+            "ad",
+            "dd",
+            "be",
+            "ce"
+        ],
+        "SZ": "19",
+        "C": "Black to play: Elementary",
+        "SOL": [
+            [
+                "B",
+                "ca",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "ea",
+            "eb",
+            "cc",
+            "ec",
+            "bd",
+            "dd",
+            "fd",
+            "be",
+            "de"
+        ],
+        "AW": [
+            "da",
+            "bb",
+            "db",
+            "ac",
+            "bc",
+            "dc",
+            "cd"
+        ],
+        "SZ": "19",
+        "C": "Black to play: Elementary",
+        "SOL": [
+            [
+                "B",
+                "aa",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "ba",
+            "bb",
+            "fb",
+            "bc",
+            "dc",
+            "ec"
+        ],
+        "AW": [
+            "fa",
+            "gb",
+            "fc",
+            "gc",
+            "ad",
+            "bd",
+            "cd",
+            "dd",
+            "ed"
+        ],
+        "SZ": "19",
+        "C": "Black to play: Elementary",
+        "SOL": [
+            [
+                "B",
+                "da",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "rb",
+            "qb",
+            "qd",
+            "pe",
+            "oe",
+            "ne",
+            "me",
+            "le",
+            "ke",
+            "je",
+            "id",
+            "ic",
+            "ib",
+            "jb",
+            "ka",
+            "kc",
+            "lc",
+            "nb"
+        ],
+        "AW": [
+            "jc",
+            "jd",
+            "kd",
+            "ld",
+            "md",
+            "nd",
+            "od",
+            "oc",
+            "pc",
+            "pb",
+            "kb",
+            "lb"
+        ],
+        "SZ": "19",
+        "C": "White to play",
+        "SOL": [
+            [
+                "W",
+                "ma",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "qa",
+            "qb",
+            "rc",
+            "pc",
+            "pd",
+            "oe",
+            "me",
+            "ke",
+            "jd",
+            "jc",
+            "kb",
+            "ib",
+            "hb",
+            "ma"
+        ],
+        "AW": [
+            "jb",
+            "ja",
+            "kc",
+            "lc",
+            "mc",
+            "nc",
+            "oc",
+            "nb",
+            "pb",
+            "pa"
+        ],
+        "SZ": "19",
+        "C": "White to play",
+        "SOL": [
+            [
+                "W",
+                "la",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "rb",
+            "sd",
+            "nb",
+            "nc",
+            "oc",
+            "qe",
+            "re",
+            "pe",
+            "rf"
+        ],
+        "AW": [
+            "rd",
+            "qd",
+            "qc",
+            "qb",
+            "ob",
+            "oa"
+        ],
+        "SZ": "19",
+        "C": "White to play",
+        "SOL": [
+            [
+                "W",
+                "sb",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "qd",
+            "rd",
+            "sd",
+            "na",
+            "nb",
+            "nc",
+            "oc",
+            "pd"
+        ],
+        "AW": [
+            "sc",
+            "rb",
+            "qb",
+            "qc",
+            "pc",
+            "ob",
+            "oa"
+        ],
+        "SZ": "19",
+        "C": "Black to play",
+        "SOL": [
+            [
+                "B",
+                "pa",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "qb",
+            "rc",
+            "rd",
+            "qd",
+            "pd",
+            "od",
+            "nc",
+            "mc",
+            "kc",
+            "lb"
+        ],
+        "AW": [
+            "sc",
+            "rb",
+            "qc",
+            "pc",
+            "pb",
+            "pa",
+            "nb",
+            "mb"
+        ],
+        "SZ": "19",
+        "C": "Black to play",
+        "SOL": [
+            [
+                "B",
+                "sb",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "od",
+            "nd",
+            "nc",
+            "mb",
+            "lb",
+            "na",
+            "sb",
+            "re",
+            "qe",
+            "pe",
+            "pb"
+        ],
+        "AW": [
+            "rb",
+            "rc",
+            "qc",
+            "pd",
+            "oc",
+            "ob",
+            "nb"
+        ],
+        "SZ": "19",
+        "C": "White to play",
+        "SOL": [
+            [
+                "W",
+                "qa",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "od",
+            "nd",
+            "md",
+            "ld",
+            "nb",
+            "la",
+            "jb",
+            "kb",
+            "kc",
+            "ra",
+            "rb",
+            "rc",
+            "rd",
+            "qe",
+            "pe"
+        ],
+        "AW": [
+            "qb",
+            "qc",
+            "pa",
+            "ob",
+            "oc",
+            "pd",
+            "nc",
+            "mc",
+            "lc",
+            "lb"
+        ],
+        "SZ": "19",
+        "C": "Black to play",
+        "SOL": [
+            [
+                "B",
+                "na",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "mf",
+            "md",
+            "ld",
+            "kc",
+            "jb",
+            "ic",
+            "rb",
+            "qc",
+            "qd",
+            "qe",
+            "pe",
+            "pa",
+            "of",
+            "nf"
+        ],
+        "AW": [
+            "pd",
+            "pc",
+            "ob",
+            "nc",
+            "nd",
+            "ne",
+            "mc",
+            "lb"
+        ],
+        "SZ": "19",
+        "C": "Black to play",
+        "SOL": [
+            [
+                "B",
+                "pb",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "pf",
+            "qf",
+            "rf",
+            "sf",
+            "ra",
+            "pa",
+            "nb",
+            "ob",
+            "oc",
+            "pd",
+            "pe"
+        ],
+        "AW": [
+            "rb",
+            "qb",
+            "pb",
+            "pc",
+            "qd",
+            "qe",
+            "re",
+            "se"
+        ],
+        "SZ": "19",
+        "C": "Black to play",
+        "SOL": [
+            [
+                "B",
+                "rc",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "ld",
+            "kd",
+            "jd",
+            "ic",
+            "ib",
+            "hb",
+            "qb",
+            "pb",
+            "pc",
+            "od",
+            "oe",
+            "ne",
+            "mc",
+            "md"
+        ],
+        "AW": [
+            "nd",
+            "nc",
+            "ob",
+            "oa",
+            "mb",
+            "lc",
+            "kc",
+            "jc",
+            "jb",
+            "ia"
+        ],
+        "SZ": "19",
+        "C": "Black to play",
+        "SOL": [
+            [
+                "B",
+                "nb",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "nc",
+            "nb",
+            "kb",
+            "lc",
+            "md",
+            "me",
+            "of",
+            "pf",
+            "qf",
+            "sb",
+            "qa",
+            "qb",
+            "rc",
+            "rd",
+            "re"
+        ],
+        "AW": [
+            "ra",
+            "rb",
+            "pc",
+            "qc",
+            "qd",
+            "qe",
+            "pe",
+            "od",
+            "nd",
+            "mb",
+            "mc"
+        ],
+        "SZ": "19",
+        "C": "White to play",
+        "SOL": [
+            [
+                "W",
+                "na",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "rd",
+            "sd",
+            "nc",
+            "mb",
+            "pb",
+            "oc",
+            "pd",
+            "qd"
+        ],
+        "AW": [
+            "rc",
+            "qc",
+            "pc",
+            "ob",
+            "oa"
+        ],
+        "SZ": "19",
+        "C": "White to play",
+        "SOL": [
+            [
+                "W",
+                "sb",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "od",
+            "nd",
+            "nb",
+            "mb",
+            "ra",
+            "se",
+            "re",
+            "qe",
+            "pd"
+        ],
+        "AW": [
+            "sd",
+            "rc",
+            "qc",
+            "pb"
+        ],
+        "SZ": "19",
+        "C": "White to play",
+        "SOL": [
+            [
+                "W",
+                "rb",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "nd",
+            "md",
+            "ld",
+            "jb",
+            "ia",
+            "hb",
+            "hc",
+            "gd",
+            "id",
+            "ie",
+            "jf",
+            "kf",
+            "qb",
+            "pb",
+            "oc",
+            "od"
+        ],
+        "AW": [
+            "ob",
+            "oa",
+            "nc",
+            "mc",
+            "lc",
+            "kc",
+            "kb",
+            "jd",
+            "je",
+            "ib",
+            "ic"
+        ],
+        "SZ": "19",
+        "C": "Black to play",
+        "SOL": [
+            [
+                "B",
+                "mb",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "nd",
+            "md",
+            "mc",
+            "ld",
+            "kd",
+            "jd",
+            "ic",
+            "hc",
+            "hb",
+            "ia",
+            "pa",
+            "pb",
+            "pc",
+            "od"
+        ],
+        "AW": [
+            "oa",
+            "ob",
+            "nc",
+            "mb",
+            "lc",
+            "kc",
+            "jb",
+            "ka"
+        ],
+        "SZ": "19",
+        "C": "Black to play",
+        "SOL": [
+            [
+                "B",
+                "jc",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "lb",
+            "hb",
+            "ib",
+            "hd",
+            "id",
+            "jd",
+            "ke",
+            "lf",
+            "mf",
+            "ne",
+            "pd",
+            "pc",
+            "pb",
+            "od",
+            "mb"
+        ],
+        "AW": [
+            "oc",
+            "ob",
+            "na",
+            "nd",
+            "md",
+            "ld",
+            "mc",
+            "kd",
+            "kc",
+            "jc",
+            "jb",
+            "ja"
+        ],
+        "SZ": "19",
+        "C": "Black to play",
+        "SOL": [
+            [
+                "B",
+                "pa",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "ld",
+            "jd",
+            "id",
+            "ib",
+            "hb",
+            "ka",
+            "ma",
+            "pa",
+            "pb",
+            "pc",
+            "od",
+            "nd",
+            "md"
+        ],
+        "AW": [
+            "ja",
+            "jb",
+            "kc",
+            "lc",
+            "mc",
+            "nc",
+            "ob"
+        ],
+        "SZ": "19",
+        "C": "White to play",
+        "SOL": [
+            [
+                "W",
+                "oa",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "qd",
+            "rd",
+            "sd",
+            "mb",
+            "nb",
+            "oc",
+            "od",
+            "pd"
+        ],
+        "AW": [
+            "ra",
+            "rc",
+            "qc",
+            "pc",
+            "ob",
+            "na"
+        ],
+        "SZ": "19",
+        "C": "Black to play",
+        "SOL": [
+            [
+                "B",
+                "sb",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "nc",
+            "nb",
+            "mc",
+            "lc",
+            "rd",
+            "qe",
+            "qf",
+            "pd",
+            "od",
+            "of"
+        ],
+        "AW": [
+            "rc",
+            "qc",
+            "pc",
+            "qd",
+            "mb",
+            "lb",
+            "kc",
+            "jb"
+        ],
+        "SZ": "19",
+        "C": "Black to play",
+        "SOL": [
+            [
+                "B",
+                "qa",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "mb",
+            "lc",
+            "jd",
+            "ic",
+            "ib",
+            "hb",
+            "kf",
+            "mf",
+            "mg",
+            "of",
+            "rb",
+            "qb",
+            "qc",
+            "pd",
+            "pe"
+        ],
+        "AW": [
+            "pb",
+            "pc",
+            "od",
+            "nc",
+            "md",
+            "ld",
+            "ia",
+            "jb"
+        ],
+        "SZ": "19",
+        "C": "White to play",
+        "SOL": [
+            [
+                "W",
+                "kc",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "jc",
+            "jd",
+            "je",
+            "kf",
+            "lf",
+            "me",
+            "nd",
+            "od",
+            "qb",
+            "pb",
+            "qd",
+            "pd",
+            "ib",
+            "jb"
+        ],
+        "AW": [
+            "oa",
+            "ob",
+            "oc",
+            "nc",
+            "mc",
+            "kb",
+            "kc",
+            "kd",
+            "le"
+        ],
+        "SZ": "19",
+        "C": "Black to play",
+        "SOL": [
+            [
+                "B",
+                "ka",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "id",
+            "ke",
+            "md",
+            "nd",
+            "od",
+            "pa",
+            "qa",
+            "qb",
+            "qc",
+            "pc",
+            "ka",
+            "hb",
+            "ib",
+            "jd"
+        ],
+        "AW": [
+            "pb",
+            "ob",
+            "nc",
+            "mc",
+            "lc",
+            "kc",
+            "jb",
+            "ja"
+        ],
+        "SZ": "19",
+        "C": "Black to play",
+        "SOL": [
+            [
+                "B",
+                "nb",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "oe",
+            "of",
+            "og",
+            "qf",
+            "rf",
+            "rg",
+            "sb",
+            "ob",
+            "pb",
+            "pc",
+            "od"
+        ],
+        "AW": [
+            "sc",
+            "qb",
+            "qc",
+            "pe",
+            "qe",
+            "re"
+        ],
+        "SZ": "19",
+        "C": "Black to play",
+        "SOL": [
+            [
+                "B",
+                "se",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "mc",
+            "nc",
+            "oc",
+            "pd",
+            "qd",
+            "rd",
+            "rf",
+            "mb"
+        ],
+        "AW": [
+            "qc",
+            "pc",
+            "ob",
+            "nb",
+            "rc"
+        ],
+        "SZ": "19",
+        "C": "Black to play",
+        "SOL": [
+            [
+                "B",
+                "na",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "pc",
+            "ob",
+            "nb",
+            "qg",
+            "rc",
+            "qc"
+        ],
+        "AW": [
+            "na",
+            "mb",
+            "mc",
+            "nc",
+            "oc",
+            "pd",
+            "qd",
+            "rd"
+        ],
+        "SZ": "19",
+        "C": "Black to play",
+        "SOL": [
+            [
+                "B",
+                "sd",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "rc",
+            "qb",
+            "pb"
+        ],
+        "AW": [
+            "pc",
+            "qc",
+            "qd",
+            "qf",
+            "ob",
+            "nc"
+        ],
+        "SZ": "19",
+        "C": "Black to play",
+        "SOL": [
+            [
+                "B",
+                "ra",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "mb",
+            "mc",
+            "md",
+            "ld",
+            "kd",
+            "jd",
+            "id",
+            "hc",
+            "gc",
+            "gb",
+            "ob",
+            "na"
+        ],
+        "AW": [
+            "hb",
+            "ha",
+            "ic",
+            "jc",
+            "kc",
+            "lc",
+            "lb",
+            "la",
+            "ma"
+        ],
+        "SZ": "19",
+        "C": "Black to play",
+        "SOL": [
+            [
+                "B",
+                "jb",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "qc",
+            "qd",
+            "pd",
+            "od",
+            "nd",
+            "nc",
+            "nb",
+            "ra",
+            "qb"
+        ],
+        "AW": [
+            "mb",
+            "mc",
+            "kb",
+            "md",
+            "ne",
+            "oe",
+            "pe",
+            "qe",
+            "rd",
+            "rc",
+            "rb"
+        ],
+        "SZ": "19",
+        "C": "Black to play",
+        "SOL": [
+            [
+                "B",
+                "pb",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "ob",
+            "qd",
+            "pe",
+            "re",
+            "pc",
+            "oc"
+        ],
+        "AW": [
+            "rd",
+            "rc",
+            "qc",
+            "pb",
+            "qa"
+        ],
+        "SZ": "19",
+        "C": "Black to play",
+        "SOL": [
+            [
+                "B",
+                "sb",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "nb",
+            "nc",
+            "nd",
+            "pe",
+            "qd",
+            "rd",
+            "rc",
+            "sd",
+            "re",
+            "na"
+        ],
+        "AW": [
+            "sb",
+            "sc",
+            "qc",
+            "pc",
+            "oc",
+            "ob",
+            "rb"
+        ],
+        "SZ": "19",
+        "C": "Black to play",
+        "SOL": [
+            [
+                "B",
+                "qb",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "bb",
+            "cb",
+            "db",
+            "fb"
+        ],
+        "AW": [
+            "ea",
+            "eb",
+            "bc",
+            "cc",
+            "dc"
+        ],
+        "SZ": "19",
+        "C": "Black to play",
+        "SOL": [
+            [
+                "B",
+                "ec",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "gb",
+            "hb",
+            "cc",
+            "dc",
+            "hc",
+            "ad",
+            "dd",
+            "hd",
+            "de",
+            "af",
+            "bf",
+            "cf",
+            "df"
+        ],
+        "AW": [
+            "bb",
+            "fb",
+            "bc",
+            "fc",
+            "gc",
+            "bd",
+            "cd",
+            "ae",
+            "be",
+            "ce",
+            "ge",
+            "ff",
+            "bh",
+            "ch",
+            "eh"
+        ],
+        "SZ": "19",
+        "C": "Black to play",
+        "SOL": [
+            [
+                "B",
+                "ba",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "ha",
+            "bb",
+            "cb",
+            "db",
+            "eb",
+            "fb",
+            "gb",
+            "cc",
+            "cd",
+            "ae",
+            "ce",
+            "bf"
+        ],
+        "AW": [
+            "da",
+            "ea",
+            "ab",
+            "hb",
+            "ib",
+            "bc",
+            "dc",
+            "ec",
+            "fc",
+            "gc",
+            "bd",
+            "hd",
+            "be",
+            "de",
+            "cf",
+            "bg",
+            "cg",
+            "dh"
+        ],
+        "SZ": "19",
+        "C": "Black to play",
+        "SOL": [
+            [
+                "B",
+                "ac",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "da",
+            "cb",
+            "eb",
+            "fb",
+            "cc",
+            "gc",
+            "fd",
+            "gd",
+            "ce",
+            "de",
+            "ee",
+            "bf",
+            "cg"
+        ],
+        "AW": [
+            "db",
+            "bc",
+            "dc",
+            "ec",
+            "fc",
+            "bd",
+            "cd",
+            "dd",
+            "be"
+        ],
+        "SZ": "19",
+        "C": "Black to play",
+        "SOL": [
+            [
+                "B",
+                "ba",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "da",
+            "ab",
+            "cb",
+            "eb",
+            "fb",
+            "hb",
+            "cc",
+            "gc",
+            "gd",
+            "ce",
+            "de",
+            "ge",
+            "bf",
+            "ef",
+            "ff",
+            "cg"
+        ],
+        "AW": [
+            "ba",
+            "db",
+            "bc",
+            "dc",
+            "ec",
+            "fc",
+            "bd",
+            "cd",
+            "dd",
+            "fd",
+            "be",
+            "ee"
+        ],
+        "SZ": "19",
+        "C": "Black to play",
+        "SOL": [
+            [
+                "B",
+                "bb",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "fb",
+            "ec",
+            "gc",
+            "ad",
+            "bd",
+            "cd",
+            "dd"
+        ],
+        "AW": [
+            "ea",
+            "ab",
+            "cb",
+            "eb",
+            "ac",
+            "cc"
+        ],
+        "SZ": "19",
+        "C": "Black to play",
+        "SOL": [
+            [
+                "B",
+                "ca",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "dc",
+            "ec",
+            "gc",
+            "bd",
+            "cd",
+            "de"
+        ],
+        "AW": [
+            "ba",
+            "bb",
+            "db",
+            "bc"
+        ],
+        "SZ": "19",
+        "C": "Black to play",
+        "SOL": [
+            [
+                "B",
+                "da",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "gb",
+            "bc",
+            "gc",
+            "bd",
+            "cd",
+            "fd",
+            "gd",
+            "ce",
+            "ee",
+            "df",
+            "ef",
+            "cg"
+        ],
+        "AW": [
+            "da",
+            "bb",
+            "cb",
+            "cc",
+            "ec",
+            "fc",
+            "dd",
+            "de"
+        ],
+        "SZ": "19",
+        "C": "Black to play",
+        "SOL": [
+            [
+                "B",
+                "ab",
+                "",
+                ""
+            ],
+            [
+                "B",
+                "dc",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "ga",
+            "gb",
+            "bc",
+            "gc",
+            "cd",
+            "dd",
+            "ed",
+            "fd",
+            "gd"
+        ],
+        "AW": [
+            "ba",
+            "fa",
+            "bb",
+            "cb",
+            "db",
+            "fb",
+            "fc"
+        ],
+        "SZ": "19",
+        "C": "Black to play",
+        "SOL": [
+            [
+                "B",
+                "da",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "eb",
+            "fc",
+            "dd",
+            "ed",
+            "fe",
+            "af",
+            "bf",
+            "cf",
+            "eg",
+            "ch"
+        ],
+        "AW": [
+            "ba",
+            "bb",
+            "cb",
+            "db",
+            "cd",
+            "ce",
+            "de"
+        ],
+        "SZ": "19",
+        "C": "Black to play",
+        "SOL": [
+            [
+                "B",
+                "ad",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "ab",
+            "kb",
+            "bc",
+            "cc",
+            "dc",
+            "ic",
+            "jc",
+            "lc",
+            "ad",
+            "dd",
+            "ed",
+            "fd",
+            "de",
+            "ge",
+            "he",
+            "je",
+            "af",
+            "bf",
+            "cf",
+            "df"
+        ],
+        "AW": [
+            "ba",
+            "ea",
+            "bb",
+            "cb",
+            "db",
+            "hb",
+            "gc",
+            "hc",
+            "bd",
+            "gd",
+            "be",
+            "ee",
+            "fe",
+            "eg",
+            "gg",
+            "bh",
+            "dh"
+        ],
+        "SZ": "19",
+        "C": "Black to play",
+        "SOL": [
+            [
+                "B",
+                "ga",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "da",
+            "fa",
+            "bb",
+            "db",
+            "eb",
+            "fb"
+        ],
+        "AW": [
+            "cb",
+            "gb",
+            "dc",
+            "ec",
+            "fc",
+            "gc",
+            "bd",
+            "dd"
+        ],
+        "SZ": "19",
+        "C": "Black to play",
+        "SOL": [
+            [
+                "B",
+                "cc",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "ab",
+            "bb",
+            "cb",
+            "db",
+            "hb",
+            "fc",
+            "hc",
+            "bd",
+            "cd",
+            "dd",
+            "ed",
+            "fd"
+        ],
+        "AW": [
+            "eb",
+            "fb",
+            "gb",
+            "ac",
+            "bc",
+            "cc",
+            "dc",
+            "ec"
+        ],
+        "SZ": "19",
+        "C": "Black to play",
+        "SOL": [
+            [
+                "B",
+                "ba",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "ab",
+            "bb",
+            "cb",
+            "db",
+            "hb",
+            "ac",
+            "ec",
+            "hc",
+            "ed",
+            "gd",
+            "ee"
+        ],
+        "AW": [
+            "eb",
+            "fb",
+            "gb",
+            "bc",
+            "cc",
+            "dc",
+            "ad",
+            "be",
+            "de",
+            "df"
+        ],
+        "SZ": "19",
+        "C": "Black to play",
+        "SOL": [
+            [
+                "B",
+                "ba",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "bc",
+            "cc",
+            "dc",
+            "hc",
+            "bd",
+            "ed",
+            "fd",
+            "gd",
+            "be",
+            "cf"
+        ],
+        "AW": [
+            "bb",
+            "cb",
+            "db",
+            "ac",
+            "ec",
+            "fc",
+            "dd",
+            "de",
+            "ef"
+        ],
+        "SZ": "19",
+        "C": "Black to play",
+        "SOL": [
+            [
+                "B",
+                "fb",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "bb",
+            "fb",
+            "bc",
+            "cc",
+            "dc",
+            "ec",
+            "cd",
+            "dd",
+            "ae",
+            "be",
+            "ce"
+        ],
+        "AW": [
+            "ba",
+            "cb",
+            "db",
+            "eb",
+            "fc",
+            "gc",
+            "hc",
+            "ed",
+            "de",
+            "ee",
+            "af",
+            "bf",
+            "cf"
+        ],
+        "SZ": "19",
+        "C": "Black to play",
+        "SOL": [
+            [
+                "B",
+                "ea",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "fb",
+            "bc",
+            "ec",
+            "bd",
+            "cd",
+            "dd",
+            "ed",
+            "be"
+        ],
+        "AW": [
+            "db",
+            "eb",
+            "cc",
+            "dc",
+            "fc",
+            "gc",
+            "ic",
+            "ce",
+            "de",
+            "ee",
+            "fe",
+            "bf",
+            "cg"
+        ],
+        "SZ": "19",
+        "C": "Black to play",
+        "SOL": [
+            [
+                "B",
+                "cb",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "eb",
+            "gb",
+            "ib",
+            "cc",
+            "dc",
+            "ec",
+            "gc",
+            "ic",
+            "bd",
+            "cd",
+            "fd",
+            "ae",
+            "de",
+            "fe",
+            "df",
+            "ff"
+        ],
+        "AW": [
+            "ea",
+            "fa",
+            "bb",
+            "cb",
+            "db",
+            "fb",
+            "lb",
+            "ac",
+            "bc",
+            "fc",
+            "kc",
+            "ad",
+            "gd",
+            "jd",
+            "ce",
+            "ge",
+            "ie",
+            "cf",
+            "gf",
+            "cg"
+        ],
+        "SZ": "19",
+        "C": "Black to play",
+        "SOL": [
+            [
+                "B",
+                "ba",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "bb",
+            "cb",
+            "db",
+            "fb",
+            "dc",
+            "cd",
+            "dd",
+            "ed",
+            "fd",
+            "gd"
+        ],
+        "AW": [
+            "ab",
+            "ib",
+            "bc",
+            "cc",
+            "fc",
+            "gc",
+            "bd",
+            "hd",
+            "id",
+            "be",
+            "ce",
+            "de",
+            "ee",
+            "fe",
+            "ge"
+        ],
+        "SZ": "19",
+        "C": "Black to play",
+        "SOL": [
+            [
+                "B",
+                "hc",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "bb",
+            "cb",
+            "db",
+            "eb",
+            "jb",
+            "ec",
+            "jc",
+            "dd",
+            "ed",
+            "fd",
+            "gd",
+            "hd",
+            "id",
+            "jd"
+        ],
+        "AW": [
+            "ja",
+            "ab",
+            "fb",
+            "ib",
+            "kb",
+            "bc",
+            "cc",
+            "dc",
+            "hc",
+            "ic",
+            "kc",
+            "cd",
+            "kd",
+            "de",
+            "je",
+            "ke",
+            "df",
+            "ff",
+            "hf"
+        ],
+        "SZ": "19",
+        "C": "Black to play",
+        "SOL": [
+            [
+                "B",
+                "gb",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "ea",
+            "db",
+            "fb",
+            "hb",
+            "fc",
+            "hc",
+            "gd",
+            "hd"
+        ],
+        "AW": [
+            "eb",
+            "ib",
+            "dc",
+            "ec",
+            "ic",
+            "dd",
+            "fd",
+            "id",
+            "de",
+            "fe",
+            "ge",
+            "he"
+        ],
+        "SZ": "19",
+        "C": "Black to play",
+        "SOL": [
+            [
+                "B",
+                "bb",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "ba",
+            "ab",
+            "bb",
+            "cb",
+            "db",
+            "bc",
+            "dc",
+            "bd",
+            "dd",
+            "ed",
+            "fd"
+        ],
+        "AW": [
+            "ca",
+            "da",
+            "eb",
+            "gb",
+            "hb",
+            "ec",
+            "ad",
+            "cd",
+            "gd",
+            "be",
+            "ce",
+            "de",
+            "ee",
+            "fe",
+            "ge"
+        ],
+        "SZ": "19",
+        "C": "Black to play",
+        "SOL": [
+            [
+                "B",
+                "fb",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "ba",
+            "fa",
+            "bb",
+            "cb",
+            "jb",
+            "cc",
+            "dc",
+            "ec",
+            "ic",
+            "kc",
+            "fd",
+            "gd",
+            "jd",
+            "kd",
+            "ee",
+            "ke",
+            "gf",
+            "kf",
+            "gg",
+            "hg",
+            "ig",
+            "jg",
+            "kg"
+        ],
+        "AW": [
+            "ca",
+            "ha",
+            "db",
+            "eb",
+            "fc",
+            "gc",
+            "hc",
+            "hd",
+            "id",
+            "he",
+            "je",
+            "hf",
+            "if",
+            "jf"
+        ],
+        "SZ": "19",
+        "C": "Black to play",
+        "SOL": [
+            [
+                "B",
+                "gb",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "ba",
+            "bb",
+            "db",
+            "gb",
+            "bc",
+            "cc",
+            "fc",
+            "hc",
+            "cd",
+            "fd",
+            "de",
+            "ge",
+            "he"
+        ],
+        "AW": [
+            "ca",
+            "da",
+            "eb",
+            "fb",
+            "ec",
+            "bd",
+            "dd",
+            "ae",
+            "ce",
+            "ee",
+            "fe",
+            "bf",
+            "cf",
+            "eg"
+        ],
+        "SZ": "19",
+        "C": "Black to play",
+        "SOL": [
+            [
+                "B",
+                "ed",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "ba",
+            "ha",
+            "bb",
+            "hb",
+            "bc",
+            "gc",
+            "ad",
+            "gd",
+            "ae",
+            "be",
+            "ce",
+            "de",
+            "ee",
+            "fe"
+        ],
+        "AW": [
+            "ca",
+            "fa",
+            "ab",
+            "cb",
+            "db",
+            "eb",
+            "fb",
+            "bd",
+            "cd",
+            "dd",
+            "ed",
+            "fd"
+        ],
+        "SZ": "19",
+        "C": "Black to play",
+        "SOL": [
+            [
+                "B",
+                "cc",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "da",
+            "ka",
+            "bb",
+            "fb",
+            "kb",
+            "bc",
+            "cc",
+            "fc",
+            "kc",
+            "ad",
+            "fd",
+            "gd",
+            "hd",
+            "id",
+            "jd",
+            "kd",
+            "be",
+            "ce",
+            "bf",
+            "ff",
+            "cg",
+            "eg",
+            "bh",
+            "ch"
+        ],
+        "AW": [
+            "ea",
+            "ja",
+            "ab",
+            "cb",
+            "eb",
+            "gb",
+            "jb",
+            "dc",
+            "ec",
+            "hc",
+            "jc",
+            "bd",
+            "cd",
+            "dd",
+            "de",
+            "cf",
+            "df",
+            "bg"
+        ],
+        "SZ": "19",
+        "C": "Black to play",
+        "SOL": [
+            [
+                "B",
+                "ba",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "da",
+            "cb",
+            "db",
+            "gb",
+            "hc",
+            "ic",
+            "bd",
+            "gd",
+            "be",
+            "ce",
+            "ee",
+            "fe",
+            "ge",
+            "bf"
+        ],
+        "AW": [
+            "ba",
+            "ca",
+            "bb",
+            "bc",
+            "cc",
+            "fc",
+            "gc",
+            "ad",
+            "cd",
+            "ed",
+            "fd"
+        ],
+        "SZ": "19",
+        "C": "Black to play",
+        "SOL": [
+            [
+                "B",
+                "dc",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "ea",
+            "bb",
+            "eb",
+            "bc",
+            "ec",
+            "jc",
+            "kc",
+            "lc",
+            "mc",
+            "bd",
+            "fd",
+            "gd",
+            "hd",
+            "id",
+            "ce",
+            "de",
+            "ee",
+            "ff"
+        ],
+        "AW": [
+            "fa",
+            "cb",
+            "db",
+            "fb",
+            "fc",
+            "gc",
+            "hc",
+            "cd",
+            "dd",
+            "ed"
+        ],
+        "SZ": "19",
+        "C": "Black to play",
+        "SOL": [
+            [
+                "B",
+                "hb",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "ab",
+            "bb",
+            "cb",
+            "fb",
+            "cc",
+            "fc",
+            "dd",
+            "ed"
+        ],
+        "AW": [
+            "eb",
+            "gb",
+            "hb",
+            "bc",
+            "ec",
+            "bd",
+            "fd",
+            "gd",
+            "ce",
+            "de",
+            "ee"
+        ],
+        "SZ": "19",
+        "C": "Black to play",
+        "SOL": [
+            [
+                "B",
+                "fa",
+                "",
+                ""
+            ]
+        ]
+    },
+    {
+        "AB": [
+            "bc",
+            "hc",
+            "ic",
+            "cd",
+            "dd",
+            "ed",
+            "fd",
+            "gd"
+        ],
+        "AW": [
+            "bb",
+            "cb",
+            "eb",
+            "ec",
+            "gc",
+            "bd",
+            "hd",
+            "be",
+            "ce",
+            "ge",
+            "he",
+            "ef"
+        ],
+        "SZ": "19",
+        "C": "Black to play",
+        "SOL": [
+            [
+                "B",
+                "fc",
+                "",
+                ""
+            ]
+        ]
+    }
+]
