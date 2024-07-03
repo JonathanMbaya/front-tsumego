@@ -1,18 +1,12 @@
 import React from 'react';
-import BoardGoban from './components/boardgame/BoardGoban';
+// import BoardGoban from './components/Boardgame/BoardGoban';
+import PublicRouter from './routes/PublicRouter';
 import './App.css';
 
-
 function App() {
-
-
   return (
     <div className="App">
-      <h1>Tsumego</h1>
-      <h1>Niveau 1</h1>
-
-      <BoardGoban className='board'/>
-
+      <PublicRouter/>
     </div>
   );
 }

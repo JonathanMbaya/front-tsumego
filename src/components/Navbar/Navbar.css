@@ -1,0 +1,161 @@
+.navbar {
+  position: fixed;
+  z-index: 5000;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: white;
+  margin: 0;
+}
+
+nav{
+  box-shadow: -1px 2px 5px 1px 
+  rgba(0, 0, 0, 0.7);
+}
+
+nav  .navbar-ul  li  a{
+display: flex;
+justify-content: center;
+align-items: center;
+padding: .2rem;
+}
+
+nav,  .navbar-ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+li {
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+}
+
+.link-without-decoration {
+  text-decoration: none;
+  color: inherit; /* Pour conserver la couleur du texte par défaut */
+  padding: 0;
+  margin: 0;
+}
+
+.item-nav{
+  background-color: rgb(235, 172, 55);
+  border-radius: 1rem;
+  padding: 2rem 8rem 2rem 8rem ;
+  border: 2px solid #333;
+}
+
+.nav-central{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.burger-icon {
+  visibility: hidden;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.icon{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.icon a , .icon .burger-icon , .logo a {
+display: flex;
+align-items: center;
+padding: .5rem;
+text-decoration: none;
+color: black;
+}
+
+.line {
+  width: 24px;
+  height: 2px;
+  padding: 0rem;
+  margin: .1rem;
+  background-color: black;
+}
+
+.open .line:nth-child(1) {
+  transform: rotate(45deg) translate(4px, 4px);
+}
+
+.open .line:nth-child(2) {
+  opacity: 0;
+}
+
+.open .line:nth-child(3) {
+  transform: rotate(-45deg) translate(3px, -3px);
+}
+
+.menu {
+  position: fixed !important;
+  z-index: 10000;
+  top: 0;
+  left: -300px; /* Initial hidden position */
+  background-color:black;
+  width: 300px;
+  height: 100vh;
+  transition: transform 0.3s ease;
+  box-shadow: -1px 2px 5px 1px 
+  rgba(0, 0, 0, 0.7);
+}
+
+.menu.open {
+  transform: translateX(300px);
+  position: fixed;
+  z-index: 10000;
+  height: 100vh; /* Move the menu to the right */
+}
+
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.menu li {
+  display: flex;
+  padding-top: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu li:last-child {
+  border-bottom: none;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Styles pour la navigation responsive */
+@media screen and (max-width: 768px) {
+  .navbar, .navbar .fixed {
+    display: none;
+  }
+
+  li {
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+  }
+}

@@ -59,7 +59,6 @@ function BoardGoban() {
 
     const answers = solutionData(data.SOL);
     setSolution(answers);
-    console.log(solution);
   }, [data]);
 
 
@@ -74,14 +73,16 @@ function BoardGoban() {
 
 
     if (solution.includes(intersection)) {
-      setSuccessMessage('Réussi, félicitations !');
-    } else {
+      setSuccessMessage('Réussi, félicitations!');
+    } else { 
       setSuccessMessage('Mauvais coup, essayez encore.');
-    
+
       setTimeout(() => {
         setSuccessMessage(''); // Efface le message après 2 secondes
       }, 2000);
+      
     }
+
   };
 
   return (
