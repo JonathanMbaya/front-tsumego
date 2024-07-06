@@ -43,7 +43,7 @@ function Navbar() {
             </li>
             
             <li>
-              <Link to="/" className="link-without-decoration item-nav">Soumettre un problème</Link>
+              <Link to="/submit-problem" className="link-without-decoration item-nav">Soumettre un problème</Link>
             </li>
 
           </div>
@@ -82,7 +82,7 @@ function Navbar() {
             <Link to="/listgames" className="link-without-decoration">Jouer au Tsumego</Link>
           </li>
           <li>
-            <Link to="/" className="link-without-decoration">Soumettre un problème</Link>
+            <Link to="/submit-problem" className="link-without-decoration">Soumettre un problème</Link>
           </li>
 
         </ul>

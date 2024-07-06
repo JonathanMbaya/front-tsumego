@@ -22,11 +22,19 @@ function Header({ currentPage }) {
                 </div>
             }
 
-            {location.pathname === '/game' && 
+            {location.pathname === '/listgames/game' && 
                 <div className='header-apropos'>
                     <Navbar />
                 </div>
             }
+
+            {location.pathname === '/submit-problem' && 
+                <div className='header-apropos'>
+                    <Navbar />
+                </div>
+            }
+
+
         </div>
     );
 };
