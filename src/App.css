@@ -15,6 +15,10 @@ h1, h2 {
   margin-top: 6rem;
 }
 
+.area-search{
+  margin-top: 10rem;
+}
+
 .row {
   display: flex;
 }

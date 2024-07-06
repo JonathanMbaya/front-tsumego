@@ -1,13 +1,17 @@
-import React from 'react'
+import React from 'react';
+import SearchBar from '../components/SearchBar/SearchBar';
+import StatisticHome from '../components/StatisticHome/StatisticHome';
 
 function HomePage() {
-    
 
-    return (
-        <>
-            <h1>HomePage</h1>
-        </>
-    )
+
+  return (
+    <>
+        <SearchBar/>
+
+        <StatisticHome/>
+    </>
+  );
 }
 
 export default HomePage;

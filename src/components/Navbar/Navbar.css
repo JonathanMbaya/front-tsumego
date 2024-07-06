@@ -47,7 +47,7 @@ li {
   background-color: rgb(55, 235, 142);
   border-radius: 1rem;
   padding: 2rem 8rem 2rem 8rem ;
-  border: 2px solid #333;
+  border: .02rem solid #333;
 }
 
 .nav-central{

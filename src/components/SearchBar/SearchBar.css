@@ -1,0 +1,49 @@
+/* HomePage.css */
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  .area-search {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .search-game{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    margin-bottom: 2rem;
+}
+  
+  .search-game input {
+    padding: 1rem 3rem;
+    border: .01rem solid #333;
+    border-radius: 2rem;
+  }
+
+  .search-game span{
+    margin-left: 2rem;
+  }
+  
+  .search-by-select {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 8px;
+  }
+
+  .btn-select{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 1rem;
+    padding: .5rem 1rem;
+    border: .01rem solid #333;
+    border-radius: 2rem;
+  }
+
+  
