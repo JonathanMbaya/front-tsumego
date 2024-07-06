@@ -12,14 +12,14 @@
 
 nav{
   box-shadow: -1px 2px 5px 1px 
-  rgba(0, 0, 0, 0.7);
+  rgba(0, 0, 0, 0.2);
 }
 
 nav  .navbar-ul  li  a{
 display: flex;
 justify-content: center;
 align-items: center;
-padding: .2rem;
+padding: .2rem .8rem;
 }
 
 nav,  .navbar-ul {
@@ -44,7 +44,7 @@ li {
 }
 
 .item-nav{
-  background-color: rgb(235, 172, 55);
+  background-color: rgb(55, 235, 142);
   border-radius: 1rem;
   padding: 2rem 8rem 2rem 8rem ;
   border: 2px solid #333;
@@ -57,14 +57,10 @@ li {
 }
 
 .burger-icon {
-  visibility: hidden;
   background: transparent;
   border: none;
   cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
+  display: none;
 }
 .icon{
   display: flex;
@@ -149,7 +145,7 @@ color: black;
 
 /* Styles pour la navigation responsive */
 @media screen and (max-width: 768px) {
-  .navbar, .navbar .fixed {
+  .navbar nav, .navbar .fixed {
     display: none;
   }
 
@@ -157,5 +153,20 @@ color: black;
     display: flex;
     justify-content: center;
     margin: 1rem;
+  }
+
+  .burger-icon {
+    visibility:visible;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    z-index: 5000;
+    right: .8rem;
+    top: 2rem;
   }
 }

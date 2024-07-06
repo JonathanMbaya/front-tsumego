@@ -4,6 +4,12 @@
   align-items: center;
 }
 
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
 h1, h2 {
   text-align: center;
   margin-top: 6rem;
@@ -13,29 +19,24 @@ h1, h2 {
   display: flex;
 }
 
-.cell {
-  width: 30px;
-  height: 30px;
+.game {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
   align-items: center;
+}
+
+.game-item{
+  width: 300px;
+  height: 300px;
+  background-color: lightgray;
+  border-radius: 1rem;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  border: 1px solid #000;
+  align-items: center;
 }
-
-.cell-0 {
-  background-color: #f0f0f0;
-}
-
-.cell-1 {
-  background-color: #000;
-  color: #fff;
-}
-
-.cell--1 {
-  background-color: #fff;
-  color: #000;
-}
-
 
 
 @keyframes App-logo-spin {
@@ -44,5 +45,20 @@ h1, h2 {
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* Styles pour la navigation responsive */
+@media screen and (max-width: 768px) {
+  h1, h2 {
+    text-align: center;
+    margin-top: 4rem;
+  }
+
+  .game {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
   }
 }

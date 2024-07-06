@@ -20,7 +20,7 @@ function Navbar() {
 
           <div className='logo'>
             <Link>
-              LOGO
+              <h3>TSUMEGO</h3>
             </Link>
           </div>
 
@@ -55,12 +55,6 @@ function Navbar() {
               <span class="material-symbols-outlined">account_circle </span> | Se connecter
             </Link>
 
-            <div className="burger-icon" onClick={toggleMenu}>
-              <span className='line'></span>
-              <span className='line'></span>
-              <span className='line'></span>
-            </div>
-
 
           </div>
           
@@ -68,8 +62,19 @@ function Navbar() {
 
       </nav>
 
+      <div className="burger-icon" onClick={toggleMenu}>
+        <span className='line'></span>
+        <span className='line'></span>
+        <span className='line'></span>
+      </div>
+
       <div className={`menu ${isOpen ? 'open' : ''}`}>
         <ul>
+          <div className="icon">
+            <Link to="/"> {/* Assurez-vous que le lien est correct */}
+              <span class="material-symbols-outlined">account_circle </span> | Se connecter
+            </Link>
+          </div>
           <li>
             <Link to="/" className="link-without-decoration">Accueil</Link>
           </li>
@@ -79,11 +84,6 @@ function Navbar() {
           <li>
             <Link to="/" className="link-without-decoration">Soumettre un problème</Link>
           </li>
-
-
-          <Link to="/">
-            <li>Se connecter</li>
-          </Link>
 
         </ul>
       </div>

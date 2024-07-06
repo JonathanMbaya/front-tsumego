@@ -12,45 +12,53 @@ function BoardGoban() {
   const [successMessage, setSuccessMessage] = useState('');
 
   const data = useMemo(() => ({
-    "AB": [
-        "fb",
-        "hb",
-        "bc",
-        "cc",
-        "dc",
-        "ec",
-        "fc",
-        "be"
-    ],
-    "AW": [
-        "ab",
-        "bb",
-        "cb",
-        "db",
-        "eb"
-    ],
-    "SZ": "19",
-    "C": "Black to play: Elementary",
-    "SOL": [
-        [
-            "B",
-            "ba",
-            "",
-            ""
-        ],
-        [
-            "B",
-            "ea",
-            "",
-            ""
-        ],
-        [
-          "B",
-          "ea",
-          "",
-          ""
-      ]
-    ]
+      "AB": [
+          "lq",
+          "lp",
+          "nq",
+          "oq",
+          "pq",
+          "qq",
+          "mr",
+          "rr",
+          "rs",
+          "mo",
+          "mn",
+          "on",
+          "pn",
+          "qn",
+          "rn",
+          "mq"
+      ],
+      "AW": [
+          "sr",
+          "qr",
+          "rq",
+          "rp",
+          "qp",
+          "pp",
+          "op",
+          "np",
+          "mp",
+          "lo",
+          "kq",
+          "kp",
+          "ko",
+          "kr",
+          "lr",
+          "nr"
+      ],
+      "SZ": "19",
+      "C": "Black to play",
+      "SOL": [
+          [
+              "B",
+              "qs",
+              "",
+              ""
+          ]
+      ],
+      "difficulty": "ADV"
   }), []);
 
   useEffect(() => {
@@ -92,7 +100,7 @@ function BoardGoban() {
       </div>
       {/* Affichage de la solution */}
       <div className="solution-container">
-        <p>Solution: {solution.join(', ')}</p>
+        <p> Voir {solution.join(', ')} </p>
       </div>
 
       {/* Plateau pour jouer */}

@@ -6,10 +6,13 @@ function TsumegoGame() {
 
     return (
         <>
-            <h1>TsumegoGame</h1>
+            <h1>Niveau 1</h1>
 
-            <h1>Tsumego</h1>
-            <h2>Niveau 1</h2>
+            <div style={{textAlign : 'center'}}>
+                <p>Niveau : Avancé</p>
+                <p>Trouvez la solution en un seul coup</p>
+            </div>
+
 
             <BoardGoban className='board'/>
         </>
