@@ -5,26 +5,26 @@ import 'animate.css';
 
 function ListTsumego() {
     const [listTsumego, setListTsumego] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [showLoading, setShowLoading] = useState(false);
     const [page, setPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
 
     useEffect(() => {
         const fetchTsumegos = async () => {
-        setLoading(true);
+        setShowLoading(true); // Affiche le message de chargement immédiatement
+
         try {
             const response = await axios.get(`http://127.0.0.1:8000/api/tsumegos/?page=${page}`);
             if (response.data && Array.isArray(response.data.results)) {
             setListTsumego(response.data.results);
             setTotalPages(Math.ceil(response.data.count / 10));
+            setShowLoading(false);
             } else {
             console.error('Unexpected response structure:', response.data);
             }
         } catch (error) {
             console.error('There was an error fetching the tsumego list!', error);
-        } finally {
-            setLoading(false);
-        }
+        } 
         };
 
         fetchTsumegos();
@@ -55,15 +55,13 @@ function ListTsumego() {
         }
     };
 
-    if (loading) {
-        return <p className='loading-page'>Chargement...</p>;
-    }
 
   return (
     <>
         <h1>Jouer au Tsumego</h1>
         <p style={{ textAlign: 'center' }}>Résoudre tous les niveaux</p>
         <h2>C'est parti !</h2>
+        {showLoading && <p className='loading-page'>Chargement...</p>}
         <div className='pagination-info'>
             <span> {page} sur {totalPages}</span>
         </div>

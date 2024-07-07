@@ -55,6 +55,11 @@ h1, h2 {
 .loading-page{
   font-size: 4rem;
   font-weight: bolder;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  color: lightgray;
 }
 
 .pagination-info{
