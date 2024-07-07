@@ -33,7 +33,7 @@ function PublicRouter ()  {
                 />
 
                 <Route
-                    path="/listgames/game"
+                    path="/listgames/game/:id"
                     element={<TsumegoGame/>}
                     render={() => {
                         setCurrentPage('game');

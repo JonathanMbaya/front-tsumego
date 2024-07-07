@@ -52,6 +52,30 @@ h1, h2 {
   align-items: center;
 }
 
+.loading-page{
+  font-size: 4rem;
+  font-weight: bolder;
+}
+
+.pagination-info{
+  text-align: center;
+  padding: 1rem;
+}
+
+.nextGame{
+  position: fixed;
+  z-index: 100;
+  bottom: 40%;
+  right: 1rem;
+}
+
+.prevGame{
+  position: fixed;
+  z-index: 100;
+  bottom: 40%;
+  left: 1rem;
+}
+
 
 @keyframes App-logo-spin {
   from {
