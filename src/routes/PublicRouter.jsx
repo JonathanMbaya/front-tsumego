@@ -6,6 +6,7 @@ import ListTsumego from "../pages/ListTsumego";
 import TsumegoGame from "../pages/TsumegoGame";
 import SignupView from "../pages/client/SignupView/SignupView";
 import FormProblem from "../components/FormProblem/FormProblem";
+import LoginView from "../pages/client/LoginView/LoginView";
 
 function PublicRouter() {
    const [currentPage, setCurrentPage] = useState("");
@@ -74,6 +75,7 @@ function PublicRouter() {
                }}
             />
             <Route path="/signup" element={<SignupView />} />
+            <Route path="/login" element={<LoginView />} />
          </Routes>
       </>
    );
