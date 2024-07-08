@@ -19,7 +19,7 @@ function Navbar() {
         <div className='navbar-ul'>
 
           <div className='logo'>
-            <Link>
+            <Link to='/'>
               <h3>TSUMEGO</h3>
             </Link>
           </div>
@@ -43,7 +43,7 @@ function Navbar() {
             </li>
             
             <li>
-              <Link to="/" className="link-without-decoration item-nav">Soumettre un problème</Link>
+              <Link to="/submit-problem" className="link-without-decoration item-nav">Soumettre un problème</Link>
             </li>
 
           </div>
@@ -62,11 +62,24 @@ function Navbar() {
 
       </nav>
 
-      <div className="burger-icon" onClick={toggleMenu}>
-        <span className='line'></span>
-        <span className='line'></span>
-        <span className='line'></span>
+      <div className="nav-burger-menu">
+
+        <div className='logo'>
+          <Link to='/'>
+            <h3>TSUMEGO</h3>
+          </Link>
+        </div>
+
+
+        <div className="burger-icon" onClick={toggleMenu}>
+          <span className='line'></span>
+          <span className='line'></span>
+          <span className='line'></span>
+        </div>
+
       </div>
+
+
 
       <div className={`menu ${isOpen ? 'open' : ''}`}>
         <ul>
@@ -82,7 +95,7 @@ function Navbar() {
             <Link to="/listgames" className="link-without-decoration">Jouer au Tsumego</Link>
           </li>
           <li>
-            <Link to="/" className="link-without-decoration">Soumettre un problème</Link>
+            <Link to="/submit-problem" className="link-without-decoration">Soumettre un problème</Link>
           </li>
 
         </ul>

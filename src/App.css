@@ -1,3 +1,13 @@
+body , code , html {
+  margin: 0;
+  padding: 0;
+
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
+}
+
 .board {
   display: flex;
   flex-direction: column;
@@ -13,6 +23,10 @@ a{
 h1, h2 {
   text-align: center;
   margin-top: 6rem;
+}
+
+.area-search{
+  margin-top: 10rem;
 }
 
 .row {

@@ -1,0 +1,36 @@
+.statistics-home{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.statistics-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:  flex-start;
+}
+
+.statistics-section p {
+    display: flex;
+    align-items: center;
+    width: 25%;
+}
+
+.statistics-section p span {
+    font-size: 2rem;
+    font-weight: bolder;
+    margin-right: 2rem;
+}
+
+
+@media screen and (max-width: 768px) {
+
+    .statistics-home{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+}
