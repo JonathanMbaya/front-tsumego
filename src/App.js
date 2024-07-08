@@ -1,12 +1,13 @@
 import React from 'react';
 // import BoardGoban from './components/Boardgame/BoardGoban';
-import PublicRouter from './routes/PublicRouter';
+import routes from './routes/PublicRouter';
 import './App.css';
+import { RouterProvider } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
-      <PublicRouter/>
+      <RouterProvider router={routes}/>
     </div>
   );
 }
