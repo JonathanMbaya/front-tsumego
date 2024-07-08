@@ -37,7 +37,7 @@ const UserForm = () => {
                   try {
                      const response = await singup(values);
                      // enregistrement de l'utilisateur et de son token en stockage local
-                     setLoggedUser(response);
+                     setLoggedUser(response.data);
                      // redirection page d'accueil
                      navigate("/");
                   } catch (error) {
