@@ -10,28 +10,19 @@ function Header({ currentPage }) {
         <div>
 
             {location.pathname === '/' && 
-                <div>
-
-                    <Navbar />
-                </div>
+                <Navbar />
             }
 
             {location.pathname === '/listgames' && 
-                <div className='header-product'>
-                    <Navbar />
-                </div>
+                <Navbar />
             }
 
-            {location.pathname === '/listgames/game' && 
-                <div className='header-apropos'>
-                    <Navbar />
-                </div>
-            }
+            {location.pathname.startsWith('/listgames/game') && (
+                <Navbar />
+            )}
 
             {location.pathname === '/submit-problem' && 
-                <div className='header-apropos'>
-                    <Navbar />
-                </div>
+                <Navbar />
             }
 
 
