@@ -26,33 +26,34 @@ function FormProblem() {
   return (
     <div className="form-container">
       <h1>Soumettre le problème</h1>
+
       <form onSubmit={handleSubmit}>
         <div className='item-form'>
             
-            <label htmlFor="email">Votre Email</label>
+          <label htmlFor="email">Votre Email</label>
 
-            <input
-            type="email"
-            placeholder="Votre email"
-            className="input-email"
-            value={email}
-            onChange={handleEmailChange}
-            required
-            />
+          <input
+          type="email"
+          placeholder="Votre email"
+          className="input-email"
+          value={email}
+          onChange={handleEmailChange}
+          required
+          />
 
         </div>
 
         <div className='item-form'>
 
-            <label htmlFor="description">Décrivez votre problème</label>
+          <label htmlFor="description">Décrivez votre problème</label>
 
-            <textarea
-            placeholder="Décrivez votre problème en quelques mots"
-            className="input-description"
-            value={description}
-            onChange={handleDescriptionChange}
-            required
-            />
+          <textarea
+          placeholder="Décrivez votre problème en quelques mots"
+          className="input-description"
+          value={description}
+          onChange={handleDescriptionChange}
+          required
+          />
 
         </div>
 

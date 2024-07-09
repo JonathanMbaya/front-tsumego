@@ -14,7 +14,6 @@ body , code , html {
   align-items: center;
 }
 
-
 a{
   text-decoration: none;
   color: black;
@@ -23,6 +22,10 @@ a{
 h1, h2 {
   text-align: center;
   margin-top: 6rem;
+}
+
+.info-goban h1{
+  margin-top: 0rem;
 }
 
 .area-search{
@@ -51,6 +54,7 @@ h1, h2 {
   box-sizing: border-box;
   overflow: hidden;
 }
+
 .game-item p{
   position: absolute;
   z-index: 100;
@@ -59,6 +63,7 @@ h1, h2 {
   font-size: 2rem;
   border: none;
 }
+
 .backImage .react-goban{
   position: relative;
   z-index: -200;
@@ -125,6 +130,21 @@ h1, h2 {
   z-index: 100;
   bottom: 40%;
   left: 1rem;
+}
+
+.btn-reveal{
+  padding: .5rem 1rem;
+  border-radius: 1rem;
+  background-color: transparent;
+  border: .01rem solid lightgray;
+}
+
+.btn-reveal:hover{
+  padding: .5rem 1rem;
+  border-radius: 1rem;
+  background-color: rgb(55, 235, 142);
+  border: .01rem solid lightgray;
+  transition: .5s;
 }
 
 
