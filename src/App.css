@@ -59,7 +59,7 @@ h1, h2 {
   font-size: 2rem;
   border: none;
 }
-.backImage img{
+.backImage .react-goban{
   position: relative;
   z-index: -200;
   width: 300px;

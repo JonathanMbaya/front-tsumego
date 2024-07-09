@@ -8,6 +8,7 @@ import { useParams } from 'react-router-dom';
 function BoardGoban() {
   // État local pour les positions des pierres
   const [stonesPlay, setStonesPlay] = useState({});
+  const [gameData, setGameData] = useState(null);
   // État local pour afficher la solution
   const [solution, setSolution] = useState([]);
   // État local pour afficher le message de succès
@@ -21,6 +22,8 @@ function BoardGoban() {
       try {
         const response = await axios.get(`http://127.0.0.1:8000/api/tsumegos/${id}`);
         const data = response.data;
+
+        setGameData(data);
 
         // Préparation des données du problème
         const initialStones = positionBoard(data.problem_desc.AB, data.problem_desc.AW);
@@ -55,8 +58,32 @@ function BoardGoban() {
     }
   };
 
+  const getDifficultyLabel = (difficulty) => {
+    switch (difficulty) {
+    case 'BEG':
+        return 'Débutant';
+    case 'INT':
+        return 'Intermédiaire';
+    case 'ADV':
+        return 'Avancé';
+    default:
+        return 'Inconnu';
+    }
+  };
+
   return (
     <div className="goban-container">
+      {gameData && (
+        <>
+          <h1>Trouvez la solution en un seul coup</h1>
+          <h2 style={{ marginTop: '2rem' }}>A toi de jouer !</h2>
+
+          <div style={{ textAlign: 'center' }}>
+            <p>Niveau : {getDifficultyLabel(gameData.problem_desc.difficulty)}</p>
+          </div>
+        </>
+      )}
+
       <div className='response-result'>
         {successMessage && <p>{successMessage}</p>}
       </div>

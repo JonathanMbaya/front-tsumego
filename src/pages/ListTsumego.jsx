@@ -4,88 +4,91 @@ import { Goban as ReactGoban } from 'react-goban';
 import axios from 'axios';
 import 'animate.css';
 import Pagination from '../components/Pagination/Pagination';
+import { positionBoard } from '../utils/TreatmentData';
 
 function ListTsumego() {
-  const [listTsumego, setListTsumego] = useState([]);
-  const [showLoading, setShowLoading] = useState(false);
-  const [page, setPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(1);
-  const [totalCount, setTotalCount] = useState(0);
+    const [listTsumego, setListTsumego] = useState([]);
+    const [showLoading, setShowLoading] = useState(false);
+    const [page, setPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(1);
+    const [totalCount, setTotalCount] = useState(0);
+    const [stonesPlay, setStonesPlay] = useState({});
 
-  const initialStones = {
-    A1 : 'black',
-    J10 : 'white'
-  }
+    useEffect(() => {
+        const fetchTsumegos = async () => {
+            setShowLoading(true);
 
-  useEffect(() => {
-    const fetchTsumegos = async () => {
-      setShowLoading(true);
+            try {
+                const response = await axios.get(`http://127.0.0.1:8000/api/tsumegos/?page=${page}`);
+                if (response.data && Array.isArray(response.data.results)) {
+                    setListTsumego(response.data.results);
+                    setTotalPages(Math.ceil(response.data.count / 10));
+                    setTotalCount(response.data.count);
+                    setShowLoading(false);
+                } else {
+                    console.error('Unexpected response structure:', response.data);
+                }
+            } catch (error) {
+                console.error('There was an error fetching the tsumego list!', error);
+            }
+        };
 
-      try {
-        const response = await axios.get(`http://127.0.0.1:8000/api/tsumegos/?page=${page}`);
-        if (response.data && Array.isArray(response.data.results)) {
-          setListTsumego(response.data.results);
-          setTotalPages(Math.ceil(response.data.count / 10));
-          setTotalCount(response.data.count);
-          setShowLoading(false);
-        } else {
-          console.error('Unexpected response structure:', response.data);
+        fetchTsumegos();
+    }, [page]);
+
+
+    const getDifficultyLabel = (difficulty) => {
+        switch (difficulty) {
+            case 'BEG':
+                return 'Débutant';
+            case 'INT':
+                return 'Intermédiaire';
+            case 'ADV':
+                return 'Avancé';
+            default:
+                return 'Inconnu';
         }
-      } catch (error) {
-        console.error('There was an error fetching the tsumego list!', error);
-      }
     };
 
-    fetchTsumegos();
-  }, [page]);
+    const handlePageChange = (newPage) => {
+        setPage(newPage);
+    };
 
-  const getDifficultyLabel = (difficulty) => {
-    switch (difficulty) {
-      case 'BEG':
-        return 'Débutant';
-      case 'INT':
-        return 'Intermédiaire';
-      case 'ADV':
-        return 'Avancé';
-      default:
-        return 'Inconnu';
-    }
-  };
+    return (
+        <>
+            <h1>Jouer au Tsumego</h1>
+            <p style={{ textAlign: 'center' }}>Résoudre tous les niveaux</p>
 
-  const handlePageChange = (newPage) => {
-    setPage(newPage);
-  };
-
-  return (
-    <>
-      <h1>Jouer au Tsumego</h1>
-      <p style={{ textAlign: 'center' }}>Résoudre tous les niveaux</p>
-
-      {showLoading && <p className='loading-page'>Chargement...</p>}
-      <div className='game animate__animated animate__fadeInUp'>
-        {listTsumego.map((tsumego) => (
-          <Link key={tsumego.id} to={`/listgames/game/${tsumego.id}`}>
-            <div className='game-item'>
-                <div className='backImage'>
-                    <img src={`${process.env.PUBLIC_URL}./go.jpeg`}  alt="" />
-                </div>
-                <p>{getDifficultyLabel(tsumego.problem_desc.difficulty)}</p>
-                <span className="material-symbols-outlined">
-                    check_small
-                </span>
+            {showLoading && <p className='loading-page'>Chargement...</p>}
+            <div className='game animate__animated animate__fadeInUp'>
+                {listTsumego.map((tsumego) => (
+                    <Link key={tsumego.id} to={`/listgames/game/${tsumego.id}`}>
+                        <div className='game-item'>
+                            <div className='backImage'>
+                                <ReactGoban
+                                    size="19"
+                                    theme="classic"
+                                    stones={positionBoard(tsumego.problem_desc.AB, tsumego.problem_desc.AW)}
+                                    nextToPlay="black"
+                                />
+                            </div>
+                            <p>{getDifficultyLabel(tsumego.problem_desc.difficulty)}</p>
+                            <span className="material-symbols-outlined">
+                                check_small
+                            </span>
+                        </div>
+                    </Link>
+                ))}
             </div>
-          </Link>
-        ))}
-      </div>
 
-      <Pagination
-        currentPage={page}
-        totalCount={totalCount}
-        pageSize={10}
-        onPageChange={handlePageChange}
-      />
-    </>
-  );
+            <Pagination
+                currentPage={page}
+                totalCount={totalCount}
+                pageSize={10}
+                onPageChange={handlePageChange}
+            />
+        </>
+    );
 }
 
 export default ListTsumego;
