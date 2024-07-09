@@ -1,4 +1,5 @@
 import axios from "axios";
+import { getUser } from "../session/session";
 
 const BASE_URL = process.env.REACT_APP_API_URL;
 
@@ -16,11 +17,11 @@ export const adminInstance = axios.create({
    },
 });
 
-/* const TOKEN_AUTHORIZATION = Cookies.get(import.meta.env.VITE_TOKEN_STORAGE);
+const TOKEN_AUTHORIZATION = getUser()?.token;
 
 adminInstance.interceptors.request.use(
   (request) => {
-    request.headers.Authorization = `${TOKEN_AUTHORIZATION?.trim()}`;
+    request.headers.Authorization = `Token ${TOKEN_AUTHORIZATION?.trim()}`;
     return request;
   },
   (error) => {
@@ -30,4 +31,4 @@ adminInstance.interceptors.request.use(
     }
     return Promise.reject(error);
   }
-); */
+);
