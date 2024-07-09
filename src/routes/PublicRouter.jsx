@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-import { Routes, Route, createBrowserRouter } from "react-router-dom";
-import Header from "../components/Header/Header";
+import React from "react";
+import {createBrowserRouter } from "react-router-dom";
 import HomePage from "../pages/HomePage";
 import ListTsumego from "../pages/ListTsumego";
 import TsumegoGame from "../pages/TsumegoGame";
@@ -11,7 +10,7 @@ import ClientLayout from "../pages/client/ClientLayout";
 
 const routes = createBrowserRouter([
     {
-        path: "/singup",
+        path: "/signup",
         element: <SignupView />
     },
     {
@@ -31,7 +30,7 @@ const routes = createBrowserRouter([
                 element: <ListTsumego />
             },
             {
-                path: "game",
+                path: "listgames/game/:id",
                 element: <TsumegoGame />
             },
             {

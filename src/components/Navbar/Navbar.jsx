@@ -35,7 +35,7 @@ function Navbar() {
             </li>
 
             <li>
-              <Link to="/listgames" className="link-without-decoration item-nav">Jouer au Tsumego 
+              <Link to="/listgames" className="link-without-decoration item-nav">Accéder au Tsumego
                 <span class="material-symbols-outlined">
                   sports_esports
                 </span>

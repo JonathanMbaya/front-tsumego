@@ -6,13 +6,13 @@ function TsumegoGame() {
 
     return (
         <>
-            <h1>Niveau 1</h1>
+            <h1>Trouvez la solution en un seul coup</h1>
+
+            <h2 style={{marginTop : '2rem'}}>A toi de jouer !</h2>
 
             <div style={{textAlign : 'center'}}>
                 <p>Niveau : Avancé</p>
-                <p>Trouvez la solution en un seul coup</p>
             </div>
-
 
             <BoardGoban className='board'/>
         </>
