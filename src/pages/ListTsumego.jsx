@@ -12,7 +12,7 @@ function ListTsumego() {
     const [page, setPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
     const [totalCount, setTotalCount] = useState(0);
-    const [stonesPlay, setStonesPlay] = useState({});
+
 
     useEffect(() => {
         const fetchTsumegos = async () => {
@@ -21,9 +21,13 @@ function ListTsumego() {
             try {
                 const response = await axios.get(`http://127.0.0.1:8000/api/tsumegos/?page=${page}`);
                 if (response.data && Array.isArray(response.data.results)) {
-                    setListTsumego(response.data.results);
-                    setTotalPages(Math.ceil(response.data.count / 10));
+                    // Update the list of tsumegos with the current page's data
+                    const currentTsumegos = response.data.results;
+                    setListTsumego(currentTsumegos);
+                    setTotalPages(Math.ceil(response.data.count/10));
                     setTotalCount(response.data.count);
+
+
                     setShowLoading(false);
                 } else {
                     console.error('Unexpected response structure:', response.data);
@@ -59,7 +63,9 @@ function ListTsumego() {
             <h1>Jouer au Tsumego</h1>
             <p style={{ textAlign: 'center' }}>Résoudre tous les niveaux</p>
 
+
             {showLoading && <p className='loading-page'>Chargement...</p>}
+
             <div className='game animate__animated animate__fadeInUp'>
                 {listTsumego.map((tsumego) => (
                     <Link key={tsumego.id} to={`/listgames/game/${tsumego.id}`}>
