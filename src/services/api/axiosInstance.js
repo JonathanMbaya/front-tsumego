@@ -17,11 +17,10 @@ export const adminInstance = axios.create({
    },
 });
 
-const TOKEN_AUTHORIZATION = getUser()?.token;
-
+//const TOKEN_AUTHORIZATION = getUser()?.token;
 adminInstance.interceptors.request.use(
   (request) => {
-    request.headers.Authorization = `Token ${TOKEN_AUTHORIZATION?.trim()}`;
+    request.headers.Authorization = `Token ${getUser()?.token.trim()}`;
     return request;
   },
   (error) => {

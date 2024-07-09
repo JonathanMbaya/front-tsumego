@@ -10,7 +10,7 @@ import ClientLayout from "../pages/client/ClientLayout";
 
 const routes = createBrowserRouter([
     {
-        path: "/signup",
+        path: "/singup",
         element: <SignupView />
     },
     {

@@ -7,7 +7,7 @@ import { getUser, setLoggedUser } from "../../../services/session/session";
 
 const LoginView = () => {
    const navigate = useNavigate();
-   const user = getUser()
+   const user = getUser()? getUser() : null
    const [errorMessage, setErrorMessage] = useState("")
    const initials = { username: "", password: "" };
    const schema = {
