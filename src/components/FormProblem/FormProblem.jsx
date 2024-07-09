@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
-import { Goban as ReactGoban }  from 'react-goban';
 import './FormProblem.css';
 
 function FormProblem() {
   const [email, setEmail] = useState('');
   const [description, setDescription] = useState('');
-  // État pour enregistrer les pierres placées
-  const [registeredStones, setRegisteredStones] = useState({});
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -26,26 +23,9 @@ function FormProblem() {
     setDescription('');
   };
 
-  // Fonction pour gérer le clic sur une intersection
-  const handleIntersectionClick = (intersection) => {
-    setRegisteredStones((prevStones) => {
-      const newStones = { ...prevStones };
-      newStones[intersection] = 'black'; // Exemple pour ajouter une pierre noire
-      return newStones;
-    }
-  );
-  }
   return (
     <div className="form-container">
       <h1>Soumettre le problème</h1>
-
-      <ReactGoban
-        size="19"
-        theme="classic"
-        stones={registeredStones}
-        nextToPlay="black"
-        onIntersectionClick={handleIntersectionClick}
-      />
 
       <form onSubmit={handleSubmit}>
         <div className='item-form'>
