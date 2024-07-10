@@ -4,13 +4,13 @@ import HomePage from "../pages/HomePage";
 import ListTsumego from "../pages/ListTsumego";
 import TsumegoGame from "../pages/TsumegoGame";
 import SignupView from "../pages/client/SignupView/SignupView";
-import FormProblem from "../components/FormProblem/FormProblem";
 import LoginView from "../pages/client/LoginView/LoginView";
 import ClientLayout from "../pages/client/ClientLayout";
+import ProposeTusmegoView from "../pages/client/ProposeTsumegoView/ProposeTusmegoView";
 
 const routes = createBrowserRouter([
     {
-        path: "/singup",
+        path: "/signup",
         element: <SignupView />
     },
     {
@@ -35,7 +35,7 @@ const routes = createBrowserRouter([
             },
             {
                 path: "submit-problem",
-                element: <FormProblem />
+                element: <ProposeTusmegoView />
             }
         ]
     }

@@ -2,10 +2,11 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import React, { useEffect, useState } from "react";
 import { login } from "../../../services/api/user";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { getUser, setLoggedUser } from "../../../services/session/session";
 
 const LoginView = () => {
+    const location = useLocation()
    const navigate = useNavigate();
    const user = getUser()? getUser() : null
    const [errorMessage, setErrorMessage] = useState("")
@@ -14,6 +15,8 @@ const LoginView = () => {
       username: Yup.string().required("Veuilllez saisir votre pseudo"),
       password: Yup.string().required("Veuillez saisir un mot de passe"),
    };
+   const from = location.state?.from || "/";
+   console.log(from)
 
    useEffect(() => {
     if(user)
@@ -21,7 +24,7 @@ const LoginView = () => {
    }, [])
 
    return (
-      <div>
+      <div className="container">
         {errorMessage && <p>{errorMessage}</p>}
          <Formik
             initialValues={initials}
@@ -33,7 +36,7 @@ const LoginView = () => {
                         // enregistrement de l'utilisateur et de son token en stockage local
                         setLoggedUser(response.data);
                         // redirection page d'accueil
-                        navigate("/");
+                        navigate(from, { replace: true });
                     } catch (error) {
                         const errorData = error?.response?.data
                         if (errorData) setErrorMessage("Pseudo ou mot de passe incorrect")

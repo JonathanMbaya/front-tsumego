@@ -13,7 +13,7 @@ const SignupView = () => {
   }, [])
   
   return (
-    <div>
+    <div className='container'>
       <UserForm/>
     </div>
   )
