@@ -47,7 +47,7 @@ function NavbarAdmin() {
                     {!user && (
                         <>
                             <li>
-                                <Link to={"/login"}>Déconnexion</Link>
+                                <Link to={"/login"}>Déconnexion <span class="material-symbols-outlined">logout</span></Link>
                             </li>
                         </>
                     )}

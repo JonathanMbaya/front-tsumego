@@ -1,15 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Pagination from '../../../components/Pagination/Pagination';
 
 function ProblemView() {
   const [tsumegos, setTsumegos] = useState([]);
 
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const [totalCount, setTotalCount] = useState(0);
+
   useEffect(() => {
     const fetchTsumegos = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:8000/api/tsumegos/');
+        const response = await axios.get(`http://127.0.0.1:8000/api/tsumegos/?page=${page}`);
         if (Array.isArray(response.data.results)) {
           setTsumegos(response.data.results);  // Assurez-vous que response.data contient la liste des problèmes
+          setTotalPages(Math.ceil(response.data.count/response.data.results.length));
+          setTotalCount(response.data.count);
         } else {
           console.error('Unexpected response data:', response.data);
         }
@@ -20,6 +27,11 @@ function ProblemView() {
 
     fetchTsumegos();
   }, [tsumegos]);
+
+
+  const handlePageChange = (newPage) => {
+    setPage(newPage);
+  };
 
   return (
     <>
@@ -39,8 +51,9 @@ function ProblemView() {
         <tbody>
           {tsumegos.map((tsumego) => (
             <tr key={tsumego.id}>
-              <td>{tsumego.submitter}</td>
-              <td>{tsumego.description}</td>
+              {/* <td>{getSubmitter(tsumego.submitter)}</td> */}
+              <td>{tsumego.submitter='NULL' ? 'Anonymous': tsumego.submitter}</td>
+              <td>{tsumego.description = 'NULL' ? 'Aucune description' : tsumego.description}</td>
               <td>
                 <select name="statut" id="statut" defaultValue={tsumego.status}>
                   <option value="false">En attente</option>
@@ -54,7 +67,7 @@ function ProblemView() {
                   edit
                 </span>
               </td>
-              
+
               <td>
                 <span className="material-symbols-outlined">
                   delete
@@ -65,6 +78,13 @@ function ProblemView() {
           ))}
         </tbody>
       </table>
+
+      <Pagination
+        currentPage={page}
+        totalCount={totalCount}
+        pageSize={10}
+        onPageChange={handlePageChange}
+      />
     </>
   )
 }
