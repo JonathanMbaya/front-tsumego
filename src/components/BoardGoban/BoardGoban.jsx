@@ -13,8 +13,8 @@ function BoardGoban() {
   const [solution, setSolution] = useState([]);
   // État local pour afficher le message de succès
   const [successMessage, setSuccessMessage] = useState('');
-
   const { id } = useParams(); // Extraction de l'id du problème via les paramètres de l'URL
+  const [reveal , setReveal] = useState('true')
 
   useEffect(() => {
     // Fonction asynchrone pour récupérer les données du problème
@@ -71,35 +71,57 @@ function BoardGoban() {
     }
   };
 
+  const toggleReveal = () => {
+    setReveal((prevReveal) => !prevReveal);
+  };
+
+
   return (
     <div className="goban-container">
       {gameData && (
         <>
-          <h1>Trouvez la solution en un seul coup</h1>
-          <h2 style={{ marginTop: '2rem' }}>A toi de jouer !</h2>
+          <div className='info-goban'>
+            <h1>Trouvez la solution en un seul coup</h1>
+              <h2 style={{ marginTop: '2rem' }}>A toi de jouer !</h2>
 
-          <div style={{ textAlign: 'center' }}>
-            <p>Niveau : {getDifficultyLabel(gameData.problem_desc.difficulty)}</p>
+              <div style={{ textAlign: 'center' }}>
+                <p>Niveau : {getDifficultyLabel(gameData.problem_desc.difficulty)}</p>
+
+                {successMessage && <p className='response-result'>{successMessage}</p>}
+
+
+                {/* Affichage de la solution */}
+                <div className="solution-container">
+
+                  <button className='btn-reveal' onClick={toggleReveal}>
+                    {!reveal ? 'Cacher la solution' : 'Voir la solution'}
+                  </button>
+
+                  {!reveal && <p className='reveal'>{solution.join(', ')}</p>}
+
+                </div>
+              </div>
+
+
           </div>
+
+            
+
+
+          {/* Plateau pour jouer */}
+          <ReactGoban
+            size={gameData.problem_desc.SZ}
+            theme="classic"
+            stones={stonesPlay}
+            nextToPlay="black"
+            onIntersectionClick={handleIntersectionClick}
+          />
         </>
+
+
+
       )}
 
-      <div className='response-result'>
-        {successMessage && <p>{successMessage}</p>}
-      </div>
-      {/* Affichage de la solution */}
-      <div className="solution-container">
-        <p>Voir {solution.join(', ')}</p>
-      </div>
-
-      {/* Plateau pour jouer */}
-      <ReactGoban
-        size="19"
-        theme="classic"
-        stones={stonesPlay}
-        nextToPlay="black"
-        onIntersectionClick={handleIntersectionClick}
-      />
     </div>
   );
 }

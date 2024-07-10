@@ -1,6 +1,21 @@
 .goban-container{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    align-items: center;
+    width: 85%;
+    margin-left: 5%;
+    margin-top: 6rem;
+}
+
+.info-goban{
     width: 50%;
-    margin-left: 25%;
+    justify-content: center;
+    align-items: center;
+}
+
+.react-goban{
+    width: 50%;
 }
   
 .solution-container {
@@ -13,21 +28,36 @@ color: #333;
 margin: 0;
 }
 
-.response-result{
-    position: absolute;
-    z-index: 1000;
-}
 
-.response-result p{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.response-result{
     background-color: black;
     border-radius: .5rem;
     color: white;
     padding: 1rem;
-    box-shadow: #333;
-    text-align: center;
-    width: 50%;
+    margin-left: 5%;
 }
   
+
+@media screen and (max-width: 768px) {
+
+    .goban-container{
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin-top: 6rem;
+        margin-left: 0%;
+    }
+    
+    .info-goban{
+        width: 50%;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .react-goban{
+        width: 80%;
+    }
+
+}
