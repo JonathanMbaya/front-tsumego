@@ -71,7 +71,7 @@ function Navbar() {
                   {!user && (
                      <ul className="d-flex">
                         <li className="me-0 border-2 border-end border-dark-subtle">
-                           <Link to={"/login"}>connexion</Link>
+                           <Link to={"/login"}>Connexion</Link>
                         </li>
                         <li className="ms-0">
                            <Link to={"/signup"}>Inscription</Link>

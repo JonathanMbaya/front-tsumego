@@ -1,0 +1,222 @@
+.navbar {
+    position: fixed;
+    z-index: 5000;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: white;
+    margin: 0;
+  }
+  
+  nav{
+    box-shadow: -1px 2px 5px 1px 
+    rgba(0, 0, 0, 0.2);
+  }
+  
+ .ul-admin  li  a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: .2rem .8rem;
+  }
+  
+  nav,  .navbar-ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+  }
+  
+ .ul-admin li {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0rem ;
+  }
+  
+  .link-without-decoration {
+    text-decoration: none;
+    color: inherit; /* Pour conserver la couleur du texte par défaut */
+    padding: 0;
+    margin: 0;
+  }
+  
+  .item-nav{
+    background-color: rgb(55, 235, 142);
+    border-radius: 1rem;
+    padding: 2rem 8rem 2rem 8rem ;
+    border: .02rem solid #333;
+  }
+  
+  .nav-central{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .burger-icon {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: none;
+  }
+  .icon{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .icon a , .icon .burger-icon , .logo a {
+  display: flex;
+  align-items: center;
+  padding: .5rem;
+  text-decoration: none;
+  color: black;
+  }
+  
+  .line {
+    width: 24px;
+    height: 2px;
+    padding: 0rem;
+    margin: .1rem;
+    background-color: black;
+  }
+  
+  .open .line:nth-child(1) {
+    transform: rotate(45deg) translate(4px, 4px);
+  }
+  
+  .open .line:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .open .line:nth-child(3) {
+    transform: rotate(-45deg) translate(3px, -3px);
+  }
+  
+  .menu-admin {
+    position: fixed !important;
+    z-index: 10000;
+    top: 0;
+    left: 0px; /* Initial hidden position */
+    background-color:black;
+    width: 300px;
+    height: 100vh;
+    transition: transform 0.3s ease;
+    /* box-shadow: -1px 2px 5px 1px 
+    rgba(0, 0, 0, 0.7); */
+  }
+
+  .menu-admin.open {
+    transform: translateX(300px);
+    position: fixed;
+    z-index: 10000;
+    height: 100vh; /* Move the menu-admin to the right */
+  }
+  
+  
+  
+  .menu-admin ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+  }
+  
+  .menu-admin .li-admin {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center !important;
+    background-color: #333;
+    border-radius: 1rem 0 0 1rem;
+    width: 200px;
+    padding: 1rem;
+
+  }
+  
+  .menu-admin .li-admin:last-child {
+    border-bottom: none;
+  }
+  
+  .menu-admin a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .nav-burger-menu{
+    visibility:hidden;
+    display: flex;
+    justify-content: space-between;
+    width: 0%;
+  }
+
+  .active-link{
+    background-color: white !important;
+    color: black !important;
+  }
+  
+  /* Styles pour la navigation responsive */
+  @media screen and (max-width: 768px) {
+    .navbar nav, .navbar .fixed {
+      display: none;
+    }
+
+    .menu-admin {
+        position: fixed !important;
+        z-index: 10000;
+        top: 0;
+        left: -300px; /* Initial hidden position */
+        background-color:black;
+        width: 300px;
+        height: 100vh;
+        transition: transform 0.3s ease;
+    }
+
+    .menu-admin.open {
+        transform: translateX(300px);
+        position: fixed;
+        z-index: 10000;
+        height: 100vh; /* Move the menu to the right */
+    }
+  
+    li {
+      display: flex;
+      justify-content: center;
+      margin: 1rem;
+    }
+  
+    .nav-burger-menu{
+      visibility: visible;
+      display: flex;
+      justify-content: space-between;
+      background-color: white;
+      width: 100%;
+      position: fixed;
+      z-index: 4000;
+      top: 0rem;
+      height: 7vh;
+    }
+  
+    .burger-icon {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      display:flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      z-index: 5000;
+      right: .8rem;
+      top: 2rem;
+    }
+  }
