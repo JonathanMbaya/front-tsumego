@@ -40,7 +40,6 @@ function ListPlayerView() {
             <tr>
                 <th>Pseudo</th>
                 <th>Email</th>
-                <th>Password</th>
                 <th>Role</th>
                 <th>Modifier</th>
                 <th>Supprimer</th>
@@ -52,7 +51,6 @@ function ListPlayerView() {
                     <tr key={player.id}>
                         <td>{player.username}</td>
                         <td>{player.email}</td>
-                        <td>********</td>
                         <td>
                             <select name="statut" id="statut" defaultValue={player.role_id}>
                                 <option value="false">Joueur</option>

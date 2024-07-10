@@ -26,7 +26,7 @@ function ProblemView() {
     };
 
     fetchTsumegos();
-  }, [tsumegos]);
+  }, [page]);
 
 
   const handlePageChange = (newPage) => {
@@ -40,7 +40,7 @@ function ProblemView() {
       <table>
         <thead>
           <tr>
-            <th>Pseudo</th>
+            <th>Nom</th>
             <th>Description</th>
             <th>Statut</th>
             <th>Niveau</th>
