@@ -78,7 +78,7 @@ function ListTsumego() {
                                     nextToPlay="black"
                                 />
                             </div>
-                            <p>{getDifficultyLabel(tsumego.problem_desc.difficulty)}</p>
+                            <p>{getDifficultyLabel(tsumego.difficulty)}</p>
                             <span className="material-symbols-outlined">
                                 check_small
                             </span>
