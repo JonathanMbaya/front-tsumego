@@ -43,7 +43,7 @@ const UserForm = () => {
                      // enregistrement de l'utilisateur et de son token en stockage local
                      setLoggedUser(response.data);
                      // redirection page d'accueil
-                     navigate("/");
+                     navigate("/listgames");
                   } catch (error) {
                     const errorData = error?.response?.data
                     if (errorData) setErrorMessage("Ce pseudo ou cet email existe déjà")

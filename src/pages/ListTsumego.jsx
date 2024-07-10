@@ -59,7 +59,7 @@ function ListTsumego() {
     };
 
     return (
-        <>
+        <div className="container">
             <h1>Jouer au Tsumego</h1>
             <p style={{ textAlign: 'center' }}>Résoudre tous les niveaux</p>
 
@@ -68,8 +68,8 @@ function ListTsumego() {
 
             <div className='game animate__animated animate__fadeInUp'>
                 {listTsumego.map((tsumego) => (
-                    <Link key={tsumego.id} to={`/listgames/game/${tsumego.id}`}>
-                        <div className='game-item'>
+                    <Link key={tsumego.id} to={`/listgames/game/${tsumego.id}`} className="mb-3">
+                        <div className='game-item pb-4'>
                             <div className='backImage'>
                                 <ReactGoban
                                     size="19"
@@ -93,7 +93,7 @@ function ListTsumego() {
                 pageSize={10}
                 onPageChange={handlePageChange}
             />
-        </>
+        </div>
     );
 }
 

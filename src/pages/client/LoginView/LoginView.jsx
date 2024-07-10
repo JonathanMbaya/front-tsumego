@@ -16,7 +16,7 @@ const LoginView = () => {
       username: Yup.string().required("Veuillez saisir votre pseudo"),
       password: Yup.string().required("Veuillez saisir un mot de passe"),
    };
-   const from = location.state?.from || "/";
+   const from = location.state?.from || "/listgames";
    console.log(from)
 
    useEffect(() => {

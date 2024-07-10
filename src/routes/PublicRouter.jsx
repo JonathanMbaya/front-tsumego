@@ -23,7 +23,7 @@ const routes = createBrowserRouter([
         children: [
             {
                 path: "",
-                element: <HomePage />
+                element: <ListTsumego />
             },
             {
                 path: "listgames",

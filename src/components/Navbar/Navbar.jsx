@@ -29,7 +29,7 @@ function Navbar() {
    }
 
    return (
-      <div className="navbar">
+      <div className="navbar py-0">
          <nav>
             <div className="navbar-ul">
                <div className="logo">
