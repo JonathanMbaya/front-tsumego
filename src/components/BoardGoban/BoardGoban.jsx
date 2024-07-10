@@ -85,7 +85,7 @@ function BoardGoban() {
               <h2 style={{ marginTop: '2rem' }}>A toi de jouer !</h2>
 
               <div style={{ textAlign: 'center' }}>
-                <p>Niveau : {getDifficultyLabel(gameData.problem_desc.difficulty)}</p>
+                <p>Niveau : {getDifficultyLabel(gameData.difficulty)}</p>
 
                 {successMessage && <p className='response-result'>{successMessage}</p>}
 
