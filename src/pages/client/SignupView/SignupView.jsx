@@ -13,9 +13,9 @@ const SignupView = () => {
   }, [])
   
   return (
-    <div className='container'>
+    <main className="container d-flex align-items-center pt-0">
       <UserForm/>
-    </div>
+    </main>
   )
 }
 
