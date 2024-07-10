@@ -16,3 +16,7 @@ main{
 .pagination li{
   cursor: pointer;
 }
+
+footer p{
+  color: #b4916c;
+}

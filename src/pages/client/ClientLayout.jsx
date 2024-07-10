@@ -12,7 +12,7 @@ const ClientLayout = () => {
             <Outlet />
          </main>
          <footer className="border-top mt-4">
-            <p className="text-center text-secondary py-4">&copy; Tsumego 2024</p>
+            <p className="text-center py-4">&copy; Tsumego 2024</p>
          </footer>
       </div>
    );

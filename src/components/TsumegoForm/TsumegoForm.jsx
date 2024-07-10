@@ -47,7 +47,7 @@ const TsumegoForm = () => {
     }, [boardSize, stones])
     
     return (
-        <div>
+        <div className="mt-5">
             <Formik initialValues={initials}
             onSubmit={(values) => {
                 values.problem_desc = pbFrontToBack(stones, solColor, values.sol_coord, boardSize, nextColor)
@@ -69,58 +69,62 @@ const TsumegoForm = () => {
                 execAsync()
             }}>
                 <Form>
-                    <div>
-                        <div className="btn-group" role="group" aria-label="Basic radio toggle button group">
-                            <input type="radio" className="btn-check" name="bord_size" value={9} id="btnradio1" autoComplete="off" checked={boardSize === "9"} onChange={handleOptionChange}/>
-                            <label class="btn btn-outline-secondary" htmlFor="btnradio1">X-9</label>
-
-                            <input type="radio" className="btn-check" name="bord_size" value={13} id="btnradio2" autoComplete="off" checked={boardSize === "13"} onChange={handleOptionChange}/>
-                            <label class="btn btn-outline-secondary" htmlFor="btnradio2">X-13</label>
-
-                            <input type="radio" className="btn-check" name="bord_size" value={19} id="btnradio3" autoComplete="off" checked={boardSize === "19"} onChange={handleOptionChange}/>
-                            <label class="btn btn-outline-secondary" htmlFor="btnradio3">X-19</label>
-                        </div>
-                    </div>
-                    <div>
-                        <Goban size={boardSize} theme="classic" stones={stones} nextToPlay={nextColor} onIntersectionClick={handleIntersectionClick} />
-                    </div>
-                    <div>
-                        <label htmlFor="description">Description du problème</label>
-                        <Field name="description" as="textarea" className="form-textarea" />
-                    </div>
-                    <div>
-                        <label htmlFor="difficulty">Niveau de difficulté</label>
-                        <Field name="difficulty" as="select" className="my-select">
-                            <option value="ELM">Elémentaire</option>
-                            <option value="BEG">Débutant</option>
-                            <option value="INT">Intermédiaire</option>
-                            <option value="ADV">Avancé</option>
-                        </Field>
-                    </div>
-                    <div>
-                        <label htmlFor="sol_coord">Solution</label>
-                        <div className="d-flex">
-                            <div className="form-check me-3">
-                                <input className="form-check-input" type="radio" name="sol_color" id="sol_color_b" value={"black"} onChange={handleSolColor} checked={solColor === "black"}/>
-                                <label className="form-check-label" htmlFor="sol_color_b">Noir</label>
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-md-8 d-flex justify-content-center">
+                                <Goban size={boardSize} theme="classic" stones={stones} nextToPlay={nextColor} onIntersectionClick={handleIntersectionClick} />
                             </div>
-                            <div className="form-check me-3">
-                                <input className="form-check-input" type="radio" name="sol_color" id="sol_color_w" value={"white"} onChange={handleSolColor} checked={solColor === "white"}/>
-                                <label className="form-check-label" htmlFor="sol_color_w">Blanc</label>
-                            </div>
-                            <div>                                
-                                <Field name="sol_coord" as="select" className="my-select" id="sol_coord">
-                                    {  
-                                        coordList.map((coord, index) => (
-                                            <option key={index} value={coord}>{coord}</option>
-                                        ))                                         
-                                    }
-                                </Field>
-                            </div>                            
-                        </div>                        
-                    </div>
-                    <div>
-                        <button type="submit" className='btn btn-primary'>Soumettre</button>
+                            <div className="col-md-4">
+                                <div className="btn-group mb-4" role="group" aria-label="Basic radio toggle button group">
+                                    <input type="radio" className="btn-check" name="bord_size" value={9} id="btnradio1" autoComplete="off" checked={boardSize === "9"} onChange={handleOptionChange}/>
+                                    <label class="btn btn-outline-secondary" htmlFor="btnradio1">9x9</label>
+
+                                    <input type="radio" className="btn-check" name="bord_size" value={13} id="btnradio2" autoComplete="off" checked={boardSize === "13"} onChange={handleOptionChange}/>
+                                    <label class="btn btn-outline-secondary" htmlFor="btnradio2">13x13</label>
+
+                                    <input type="radio" className="btn-check" name="bord_size" value={19} id="btnradio3" autoComplete="off" checked={boardSize === "19"} onChange={handleOptionChange}/>
+                                    <label class="btn btn-outline-secondary" htmlFor="btnradio3">19x19</label>
+                                </div>
+                                <div className="mb-4">
+                                    <label htmlFor="description" className="form-label">Description du problème</label>
+                                    <Field name="description" as="textarea" className="form-textarea form-control" />
+                                </div>
+                                <div className="mb-4">
+                                    <label htmlFor="difficulty" className="form-label">Niveau de difficulté</label>
+                                    <Field name="difficulty" as="select" className="my-select form-select">
+                                        <option value="ELM">Elémentaire</option>
+                                        <option value="BEG">Débutant</option>
+                                        <option value="INT">Intermédiaire</option>
+                                        <option value="ADV">Avancé</option>
+                                    </Field>
+                                </div>
+                                <div>
+                                    <label htmlFor="sol_coord">Solution</label>
+                                    <div className="d-flex align-items-center">
+                                        <div className="form-check me-3">
+                                            <input className="form-check-input" type="radio" name="sol_color" id="sol_color_b" value={"black"} onChange={handleSolColor} checked={solColor === "black"}/>
+                                            <label className="form-check-label" htmlFor="sol_color_b">Noir</label>
+                                        </div>
+                                        <div className="form-check me-3">
+                                            <input className="form-check-input" type="radio" name="sol_color" id="sol_color_w" value={"white"} onChange={handleSolColor} checked={solColor === "white"}/>
+                                            <label className="form-check-label" htmlFor="sol_color_w">Blanc</label>
+                                        </div>
+                                        <div>                                
+                                            <Field name="sol_coord" as="select" className="my-select form-select" id="sol_coord">
+                                                {  
+                                                    coordList.map((coord, index) => (
+                                                        <option key={index} value={coord}>{coord}</option>
+                                                    ))                                         
+                                                }
+                                            </Field>
+                                        </div>                            
+                                    </div>                        
+                                </div>
+                                <div className="mt-4">
+                                    <button type="submit" className='btn btn-primary'>Soumettre</button>
+                                </div>
+                            </div>                             
+                        </div>                       
                     </div>
                 </Form>
             </Formik>
