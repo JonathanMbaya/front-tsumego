@@ -3,20 +3,27 @@ import UserForm from '../../../components/UserForm/UserForm'
 import { useNavigate } from 'react-router-dom'
 import { getUser } from '../../../services/session/session'
 
+/**
+ * Le composant SignupView affiche le formulaire d'inscription.
+ * Si un utilisateur est déjà authentifié, il le redirige vers la page d'accueil.
+ */
 const SignupView = () => {
-  const navigate = useNavigate()
-  const user = getUser()
+  const navigate = useNavigate(); // Hook de React Router pour la navigation
+  const user = getUser(); // Fonction pour obtenir le statut d'authentification de l'utilisateur
 
   useEffect(() => {
-    if(user)
-      navigate("/")
-  }, [])
-  
+    // Redirige vers la page d'accueil si l'utilisateur est déjà authentifié
+    if (user) {
+      navigate("/");
+    }
+  }, []); // Le tableau de dépendances vide assure que useEffect s'exécute une seule fois 
+
   return (
     <main className="container d-flex align-items-center pt-0">
-      <UserForm/>
+      <UserForm /> {/* Affiche le composant UserForm pour l'inscription */}
     </main>
-  )
-}
+  );
+};
 
-export default SignupView
+
+export default SignupView;

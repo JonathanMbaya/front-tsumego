@@ -2,6 +2,11 @@ import React from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import { Outlet } from "react-router-dom";
 
+
+/**
+ * Le composant ClientLayout représente la mise en page pour les pages côté client.
+ * Il inclut une barre de navigation, une zone de contenu principal, et un pied de page avec des informations sur les droits d'auteur.
+ */
 const ClientLayout = () => {
    return (
       <div>
