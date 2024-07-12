@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>components/BoardGoban/BoardGoban.jsx - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#AdminLayout">AdminLayout</a></li><li><a href="global.html#BoardGoban">BoardGoban</a></li><li><a href="global.html#ClientLayout">ClientLayout</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#ListPlayerView">ListPlayerView</a></li><li><a href="global.html#ListTsumego">ListTsumego</a></li><li><a href="global.html#LoginView">LoginView</a></li><li><a href="global.html#Navbar">Navbar</a></li><li><a href="global.html#NavbarAdmin">NavbarAdmin</a></li><li><a href="global.html#Pagination">Pagination</a></li><li><a href="global.html#ProblemView">ProblemView</a></li><li><a href="global.html#ProposeTsumegoView">ProposeTsumegoView</a></li><li><a href="global.html#SignupView">SignupView</a></li><li><a href="global.html#TsumegoForm">TsumegoForm</a></li><li><a href="global.html#UserForm">UserForm</a></li></ul>
+    
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">components/BoardGoban/BoardGoban.jsx</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useState, useEffect } from 'react';
+import { Goban as ReactGoban } from 'react-goban';
+import axios from 'axios';
+import './Goban.css';
+import { positionBoard, solutionData } from '../../utils/TreatmentData';
+import { useParams } from 'react-router-dom';
+
+/**
+ * Composant BoardGoban pour afficher et interagir avec le plateau de jeu de go.
+ * Ce composant permet aux utilisateurs de jouer des coups sur le plateau et de vérifier la solution.
+ * @component
+ */
+function BoardGoban() {
+  // État local pour les positions des pierres
+  const [stonesPlay, setStonesPlay] = useState({});
+  const [gameData, setGameData] = useState(null);
+  // État local pour afficher la solution
+  const [solution, setSolution] = useState([]);
+  // État local pour afficher le message de succès
+  const [successMessage, setSuccessMessage] = useState('');
+  const { id } = useParams(); // Extraction de l'id du problème via les paramètres de l'URL
+  const [reveal, setReveal] = useState('true');
+
+  useEffect(() => {
+    // Fonction asynchrone pour récupérer les données du problème
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`http://127.0.0.1:8000/api/tsumegos/${id}`);
+        const data = response.data;
+
+        setGameData(data);
+
+        // Préparation des données du problème
+        const initialStones = positionBoard(data.problem_desc.AB, data.problem_desc.AW);
+        setStonesPlay(initialStones);
+
+        const answers = solutionData(data.problem_desc.SOL);
+        setSolution(answers);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData();
+  }, [id]); // Dépendance sur id, pour que le fetch se produise à chaque changement de l'id
+
+  /**
+   * Gère le clic sur une intersection du plateau de jeu.
+   * @param {string} intersection - L'intersection cliquée.
+   */
+  const handleIntersectionClick = (intersection) => {
+    setStonesPlay((prevStonesPlay) => {
+      const newStonesPlay = { ...prevStonesPlay };
+      newStonesPlay[intersection] = 'black'; // Exemple pour ajouter une pierre noire
+      return newStonesPlay;
+    });
+
+    if (solution.includes(intersection)) {
+      setSuccessMessage('Réussi, félicitations!');
+    } else {
+      setSuccessMessage('Mauvais coup, essayez encore.');
+
+      setTimeout(() => {
+        setSuccessMessage(''); // Efface le message après 2 secondes
+      }, 2000);
+    }
+  };
+
+  /**
+   * Récupère l'étiquette de difficulté en fonction du code de difficulté.
+   * @param {string} difficulty - Le code de difficulté ('BEG', 'INT', 'ADV').
+   * @returns {string} L'étiquette de difficulté correspondante.
+   */
+  const getDifficultyLabel = (difficulty) => {
+    switch (difficulty) {
+      case 'BEG':
+        return 'Débutant';
+      case 'INT':
+        return 'Intermédiaire';
+      case 'ADV':
+        return 'Avancé';
+      default:
+        return 'Inconnu';
+    }
+  };
+
+  /**
+   * Affiche ou masque la solution.
+   */
+  const toggleReveal = () => {
+    setReveal((prevReveal) => !prevReveal);
+  };
+
+  return (
+    &lt;div className="goban-container">
+      {gameData &amp;&amp; (
+        &lt;>
+          &lt;div className='info-goban'>
+            &lt;h1>Trouvez la solution en un seul coup&lt;/h1>
+            &lt;h2 style={{ marginTop: '2rem' }}>A toi de jouer !&lt;/h2>
+
+            &lt;div style={{ textAlign: 'center' }}>
+              &lt;p>Niveau : {getDifficultyLabel(gameData.difficulty)}&lt;/p>
+
+              {successMessage &amp;&amp; &lt;p className='response-result'>{successMessage}&lt;/p>}
+
+              {/* Affichage de la solution */}
+              &lt;div className="solution-container">
+                &lt;button className='btn-reveal' onClick={toggleReveal}>
+                  {!reveal ? 'Cacher la solution' : 'Voir la solution'}
+                &lt;/button>
+
+                {!reveal &amp;&amp; &lt;p className='reveal'>{solution.join(', ')}&lt;/p>}
+              &lt;/div>
+            &lt;/div>
+          &lt;/div>
+
+          {/* Plateau pour jouer */}
+          &lt;ReactGoban
+            size={gameData.problem_desc.SZ}
+            theme="classic"
+            stones={stonesPlay}
+            nextToPlay="black"
+            onIntersectionClick={handleIntersectionClick}
+          />
+        &lt;/>
+      )}
+    &lt;/div>
+  );
+}
+
+export default BoardGoban;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.3</a> on Fri Jul 12 2024 14:53:51 GMT+0200 (heure d’été d’Europe centrale) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>
