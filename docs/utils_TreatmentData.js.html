@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>pages/client/ProposeTsumegoView/ProposeTusmegoView.jsx - Documentation</title>
+    <title>utils/TreatmentData.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -35,7 +35,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">pages/client/ProposeTsumegoView/ProposeTusmegoView.jsx</h1>
+    <h1 class="page-title">utils/TreatmentData.js</h1>
     
 
     
@@ -45,39 +45,75 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React, { useEffect } from 'react';
-import { getUser } from '../../../services/session/session';
-import { useLocation, useNavigate } from 'react-router-dom';
-import TsumegoForm from '../../../components/TsumegoForm/TsumegoForm';
-
-/**
- * Le composant ProposeTsumegoView affiche le formulaire pour proposer un nouveau tsumego.
- * Si l'utilisateur n'est pas authentifié, il le redirige vers la page de connexion,
- * en conservant l'emplacement actuel pour revenir après une connexion réussie.
- * 
- * @component
- * @returns {JSX.Element} Le rendu du composant ProposeTsumegoView.
- */
-const ProposeTsumegoView = () => {
-  const user = getUser(); // Fonction pour obtenir le statut d'authentification de l'utilisateur
-  const navigate = useNavigate(); // Hook de React Router pour la navigation
-  const location = useLocation(); // Hook de React Router pour obtenir l'emplacement actuel
-
-  useEffect(() => {
-    // Redirige vers la page de connexion si l'utilisateur n'est pas authentifié
-    if (!user) {
-      navigate("/login", { state: { from: location.pathname } }); // Conserve l'emplacement actuel pour redirection après connexion
-    }
-  }, []); // Le tableau de dépendances vide assure que useEffect s'exécute une seule fois 
-
-  return (
-    &lt;div className='container'>
-      &lt;TsumegoForm /> {/* Affiche le composant TsumegoForm pour proposer un nouveau tsumego */}
-    &lt;/div>
-  );
+            <pre class="prettyprint source linenums"><code>const dataTest = {
+    "A": 1,
+    "B": 2,
+    "C": 3,
+    "D": 4,
+    "E": 5,
+    "F": 6,
+    "G": 7,
+    "H": 8,
+    "I": 9,
+    "J": 10,
+    "K": 11,
+    "L": 12,
+    "M": 13,
+    "N": 14,
+    "O": 15,
+    "P": 16,
+    "Q": 17,
+    "R": 18,
+    "S": 19,
+    "T": 20,
+    "U": 21,
+    "V": 22,
+    "W": 23,
+    "X": 24,
+    "Y": 25,
+    "Z": 26
 };
 
-export default ProposeTsumegoView;
+/**
+ * Convertit les solutions en coordonnées de plateau.
+ *
+ * @function solutionData
+ * @param {Array} solutions - Tableau de solutions, chaque solution est un tableau contenant une chaîne de caractères.
+ * @returns {Array} Un tableau de chaînes de caractères représentant les coordonnées de plateau.
+ */
+export function solutionData(solutions) {
+    return solutions.map(solution => {
+        const row = solution[1].substring(0, 1).toUpperCase();
+        const col = dataTest[solution[1].substring(1).toUpperCase()];
+        return `${row}${col}`;
+    });
+}
+
+/**
+ * Positionne les pierres noires et blanches sur le plateau.
+ *
+ * @function positionBoard
+ * @param {Array} blackStones - Tableau de coordonnées des pierres noires.
+ * @param {Array} whiteStones - Tableau de coordonnées des pierres blanches.
+ * @returns {Object} Un objet représentant les positions des pierres sur le plateau.
+ */
+export function positionBoard(blackStones, whiteStones) {
+    const board = {};
+
+    blackStones.forEach(element => {
+        const row = element.substring(0, 1).toUpperCase();
+        const col = dataTest[element.substring(1).toUpperCase()];
+        board[`${row}${col}`] = 'black';
+    });
+
+    whiteStones.forEach(element => {
+        const row = element.substring(0, 1).toUpperCase();
+        const col = dataTest[element.substring(1).toUpperCase()];
+        board[`${row}${col}`] = 'white';
+    });
+
+    return board;
+}
 </code></pre>
         </article>
     </section>

@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>pages/client/ProposeTsumegoView/ProposeTusmegoView.jsx - Documentation</title>
+    <title>utils/usePagination.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -35,7 +35,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">pages/client/ProposeTsumegoView/ProposeTusmegoView.jsx</h1>
+    <h1 class="page-title">utils/usePagination.js</h1>
     
 
     
@@ -45,39 +45,72 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React, { useEffect } from 'react';
-import { getUser } from '../../../services/session/session';
-import { useLocation, useNavigate } from 'react-router-dom';
-import TsumegoForm from '../../../components/TsumegoForm/TsumegoForm';
+            <pre class="prettyprint source linenums"><code>import { useMemo } from 'react';
 
 /**
- * Le composant ProposeTsumegoView affiche le formulaire pour proposer un nouveau tsumego.
- * Si l'utilisateur n'est pas authentifié, il le redirige vers la page de connexion,
- * en conservant l'emplacement actuel pour revenir après une connexion réussie.
- * 
- * @component
- * @returns {JSX.Element} Le rendu du composant ProposeTsumegoView.
+ * Génère une plage de nombres entre une valeur de départ et une valeur de fin.
+ *
+ * @function range
+ * @param {number} start - Valeur de départ.
+ * @param {number} end - Valeur de fin.
+ * @returns {number[]} Tableau de nombres entre start et end, inclus.
  */
-const ProposeTsumegoView = () => {
-  const user = getUser(); // Fonction pour obtenir le statut d'authentification de l'utilisateur
-  const navigate = useNavigate(); // Hook de React Router pour la navigation
-  const location = useLocation(); // Hook de React Router pour obtenir l'emplacement actuel
-
-  useEffect(() => {
-    // Redirige vers la page de connexion si l'utilisateur n'est pas authentifié
-    if (!user) {
-      navigate("/login", { state: { from: location.pathname } }); // Conserve l'emplacement actuel pour redirection après connexion
-    }
-  }, []); // Le tableau de dépendances vide assure que useEffect s'exécute une seule fois 
-
-  return (
-    &lt;div className='container'>
-      &lt;TsumegoForm /> {/* Affiche le composant TsumegoForm pour proposer un nouveau tsumego */}
-    &lt;/div>
-  );
+const range = (start, end) => {
+  let length = end - start + 1;
+  return Array.from({ length }, (_, idx) => idx + start);
 };
 
-export default ProposeTsumegoView;
+/**
+ * Hook personnalisé pour gérer la pagination.
+ *
+ * @function usePagination
+ * @param {Object} params - Paramètres pour la pagination.
+ * @param {number} params.totalCount - Nombre total d'éléments.
+ * @param {number} params.pageSize - Nombre d'éléments par page.
+ * @param {number} [params.siblingCount=1] - Nombre de pages voisines à afficher de chaque côté de la page courante.
+ * @param {number} params.currentPage - Page courante.
+ * @returns {Array} Tableau de nombres et/ou de chaînes de caractères représentant la plage de pagination.
+ */
+export const usePagination = ({ totalCount, pageSize, siblingCount = 1, currentPage }) => {
+  const paginationRange = useMemo(() => {
+    const totalPageCount = Math.ceil(totalCount / pageSize);
+    const totalPageNumbers = siblingCount + 5;
+
+    // Si le nombre total de pages est inférieur ou égal au nombre de pages affichées
+    if (totalPageNumbers >= totalPageCount) {
+      return range(1, totalPageCount);
+    }
+
+    const leftSiblingIndex = Math.max(currentPage - siblingCount, 1);
+    const rightSiblingIndex = Math.min(currentPage + siblingCount, totalPageCount);
+
+    const shouldShowLeftDots = leftSiblingIndex > 2;
+    const shouldShowRightDots = rightSiblingIndex &lt; totalPageCount - 2;
+
+    const firstPageIndex = 1;
+    const lastPageIndex = totalPageCount;
+
+    // Si les points de suspension à gauche ne sont pas nécessaires mais ceux à droite le sont
+    if (!shouldShowLeftDots &amp;&amp; shouldShowRightDots) {
+      let leftRange = range(1, 3 + 2 * siblingCount);
+      return [...leftRange, '...', totalPageCount];
+    }
+
+    // Si les points de suspension à droite ne sont pas nécessaires mais ceux à gauche le sont
+    if (shouldShowLeftDots &amp;&amp; !shouldShowRightDots) {
+      let rightRange = range(totalPageCount - (3 + 2 * siblingCount) + 1, totalPageCount);
+      return [firstPageIndex, '...', ...rightRange];
+    }
+
+    // Si les points de suspension sont nécessaires à gauche et à droite
+    if (shouldShowLeftDots &amp;&amp; shouldShowRightDots) {
+      let middleRange = range(leftSiblingIndex, rightSiblingIndex);
+      return [firstPageIndex, '...', ...middleRange, '...', lastPageIndex];
+    }
+  }, [totalCount, pageSize, siblingCount, currentPage]);
+
+  return paginationRange;
+};
 </code></pre>
         </article>
     </section>

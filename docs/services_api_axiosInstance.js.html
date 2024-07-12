@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>pages/client/ProposeTsumegoView/ProposeTusmegoView.jsx - Documentation</title>
+    <title>services/api/axiosInstance.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -35,7 +35,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">pages/client/ProposeTsumegoView/ProposeTusmegoView.jsx</h1>
+    <h1 class="page-title">services/api/axiosInstance.js</h1>
     
 
     
@@ -45,39 +45,50 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React, { useEffect } from 'react';
-import { getUser } from '../../../services/session/session';
-import { useLocation, useNavigate } from 'react-router-dom';
-import TsumegoForm from '../../../components/TsumegoForm/TsumegoForm';
+            <pre class="prettyprint source linenums"><code>import axios from "axios";
+import { getUser } from "../session/session";
+
+const BASE_URL = process.env.REACT_APP_API_URL;
 
 /**
- * Le composant ProposeTsumegoView affiche le formulaire pour proposer un nouveau tsumego.
- * Si l'utilisateur n'est pas authentifié, il le redirige vers la page de connexion,
- * en conservant l'emplacement actuel pour revenir après une connexion réussie.
- * 
- * @component
- * @returns {JSX.Element} Le rendu du composant ProposeTsumegoView.
+ * Instance d'axios avec la configuration de base pour l'application.
+ * @type {AxiosInstance}
  */
-const ProposeTsumegoView = () => {
-  const user = getUser(); // Fonction pour obtenir le statut d'authentification de l'utilisateur
-  const navigate = useNavigate(); // Hook de React Router pour la navigation
-  const location = useLocation(); // Hook de React Router pour obtenir l'emplacement actuel
+export const instance = axios.create({
+   baseURL: BASE_URL,
+   headers: {
+      "Content-Type": "application/json",
+   },
+});
 
-  useEffect(() => {
-    // Redirige vers la page de connexion si l'utilisateur n'est pas authentifié
-    if (!user) {
-      navigate("/login", { state: { from: location.pathname } }); // Conserve l'emplacement actuel pour redirection après connexion
+/**
+ * Instance d'axios avec la configuration de base pour les requêtes d'administration.
+ * @type {AxiosInstance}
+ */
+export const adminInstance = axios.create({
+   baseURL: BASE_URL,
+   headers: {
+      "Content-Type": "application/json",
+   },
+});
+
+/**
+ * Intercepteur pour ajouter le token d'authentification aux requêtes d'administration.
+ * Cet intercepteur ajoute un en-tête 'Authorization' avec le token de l'utilisateur.
+ */
+adminInstance.interceptors.request.use(
+  (request) => {
+    request.headers.Authorization = `Token ${getUser()?.token.trim()}`;
+    return request;
+  },
+  (error) => {
+    if (error.response) {
+      const apiError = error.response?.data;
+      return Promise.reject(apiError);
     }
-  }, []); // Le tableau de dépendances vide assure que useEffect s'exécute une seule fois 
-
-  return (
-    &lt;div className='container'>
-      &lt;TsumegoForm /> {/* Affiche le composant TsumegoForm pour proposer un nouveau tsumego */}
-    &lt;/div>
-  );
-};
-
-export default ProposeTsumegoView;
+    return Promise.reject(error);
+  }
+);
 </code></pre>
         </article>
     </section>

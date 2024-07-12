@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>pages/client/ProposeTsumegoView/ProposeTusmegoView.jsx - Documentation</title>
+    <title>services/session/session.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -35,7 +35,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">pages/client/ProposeTsumegoView/ProposeTusmegoView.jsx</h1>
+    <h1 class="page-title">services/session/session.js</h1>
     
 
     
@@ -45,39 +45,51 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React, { useEffect } from 'react';
-import { getUser } from '../../../services/session/session';
-import { useLocation, useNavigate } from 'react-router-dom';
-import TsumegoForm from '../../../components/TsumegoForm/TsumegoForm';
+            <pre class="prettyprint source linenums"><code>const TOKEN_KEY = process.env.REACT_APP_TOKEN_KEY;
 
 /**
- * Le composant ProposeTsumegoView affiche le formulaire pour proposer un nouveau tsumego.
- * Si l'utilisateur n'est pas authentifié, il le redirige vers la page de connexion,
- * en conservant l'emplacement actuel pour revenir après une connexion réussie.
- * 
- * @component
- * @returns {JSX.Element} Le rendu du composant ProposeTsumegoView.
+ * Enregistre l'utilisateur connecté en stockage de session.
+ *
+ * @function setLoggedUser
+ * @param {Object} data - Les informations de l'utilisateur à enregistrer.
+ * @param {string} data.token - Le token d'authentification de l'utilisateur.
+ * @param {Object} data.user - Les informations de l'utilisateur.
+ * @param {string} data.user.id - L'identifiant de l'utilisateur.
+ * @param {string} data.user.username - Le nom d'utilisateur.
  */
-const ProposeTsumegoView = () => {
-  const user = getUser(); // Fonction pour obtenir le statut d'authentification de l'utilisateur
-  const navigate = useNavigate(); // Hook de React Router pour la navigation
-  const location = useLocation(); // Hook de React Router pour obtenir l'emplacement actuel
-
-  useEffect(() => {
-    // Redirige vers la page de connexion si l'utilisateur n'est pas authentifié
-    if (!user) {
-      navigate("/login", { state: { from: location.pathname } }); // Conserve l'emplacement actuel pour redirection après connexion
-    }
-  }, []); // Le tableau de dépendances vide assure que useEffect s'exécute une seule fois 
-
-  return (
-    &lt;div className='container'>
-      &lt;TsumegoForm /> {/* Affiche le composant TsumegoForm pour proposer un nouveau tsumego */}
-    &lt;/div>
-  );
+export const setLoggedUser = (data) => {
+   if (typeof sessionStorage !== "undefined") {
+      sessionStorage.setItem(TOKEN_KEY, JSON.stringify(data));
+   }
 };
 
-export default ProposeTsumegoView;
+/**
+ * Récupère les informations de l'utilisateur connecté depuis le stockage de session.
+ *
+ * @function getUser
+ * @returns {Object|null} Les informations de l'utilisateur connecté ou null s'il n'est pas trouvé.
+ * @returns {string} [return.token] - Le token d'authentification de l'utilisateur.
+ * @returns {Object} [return.user] - Les informations de l'utilisateur.
+ * @returns {string} [return.user.id] - L'identifiant de l'utilisateur.
+ * @returns {string} [return.user.username] - Le nom d'utilisateur.
+ */
+export const getUser = () => {
+   if (typeof sessionStorage !== "undefined") {
+      return JSON.parse(sessionStorage.getItem(TOKEN_KEY));
+   }
+   return null;
+};
+
+/**
+ * Supprime les informations de l'utilisateur connecté du stockage de session.
+ *
+ * @function removeUser
+ */
+export const removeUser = () => {
+   if (typeof sessionStorage !== "undefined") {
+      sessionStorage.removeItem(TOKEN_KEY);
+   }
+};
 </code></pre>
         </article>
     </section>

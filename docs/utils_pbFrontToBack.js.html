@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>pages/client/ProposeTsumegoView/ProposeTusmegoView.jsx - Documentation</title>
+    <title>utils/pbFrontToBack.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -35,7 +35,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">pages/client/ProposeTsumegoView/ProposeTusmegoView.jsx</h1>
+    <h1 class="page-title">utils/pbFrontToBack.js</h1>
     
 
     
@@ -45,39 +45,55 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React, { useEffect } from 'react';
-import { getUser } from '../../../services/session/session';
-import { useLocation, useNavigate } from 'react-router-dom';
-import TsumegoForm from '../../../components/TsumegoForm/TsumegoForm';
-
-/**
- * Le composant ProposeTsumegoView affiche le formulaire pour proposer un nouveau tsumego.
- * Si l'utilisateur n'est pas authentifié, il le redirige vers la page de connexion,
- * en conservant l'emplacement actuel pour revenir après une connexion réussie.
- * 
- * @component
- * @returns {JSX.Element} Le rendu du composant ProposeTsumegoView.
+            <pre class="prettyprint source linenums"><code>/**
+ * Génère un objet JSON associant des nombres aux lettres de 'a' à 't' en sautant 'i'.
+ *
+ * @function generateJson
+ * @returns {Object} Un objet où les clés sont des nombres de 1 à 19 et les valeurs sont des lettres de 'a' à 't' (sans 'i').
  */
-const ProposeTsumegoView = () => {
-  const user = getUser(); // Fonction pour obtenir le statut d'authentification de l'utilisateur
-  const navigate = useNavigate(); // Hook de React Router pour la navigation
-  const location = useLocation(); // Hook de React Router pour obtenir l'emplacement actuel
-
-  useEffect(() => {
-    // Redirige vers la page de connexion si l'utilisateur n'est pas authentifié
-    if (!user) {
-      navigate("/login", { state: { from: location.pathname } }); // Conserve l'emplacement actuel pour redirection après connexion
-    }
-  }, []); // Le tableau de dépendances vide assure que useEffect s'exécute une seule fois 
-
-  return (
-    &lt;div className='container'>
-      &lt;TsumegoForm /> {/* Affiche le composant TsumegoForm pour proposer un nouveau tsumego */}
-    &lt;/div>
-  );
+const generateJson = () => {
+  const letters = 'abcdefghjklmnopqrst'; // 'i' est sauté
+  const json = {};
+  for (let i = 0; i &lt; letters.length; i++) {
+      json[i + 1] = letters[i];
+  }
+  return json;
 };
 
-export default ProposeTsumegoView;
+const jsonData = generateJson();
+
+/**
+* Convertit les données de tsumego du format front-end au format back-end.
+*
+* @function pbFrontToBack
+* @param {Object} stones - Les pierres sur le plateau, où les clés sont les coordonnées et les valeurs sont "black" ou "white".
+* @param {string} solColor - La couleur de la solution ("black" ou "white").
+* @param {string} solCoord - La coordonnée de la solution.
+* @param {number} boardSize - La taille du plateau (9, 13, ou 19).
+* @param {string} nextColor - La couleur de la prochaine pierre à jouer ("black" ou "white").
+* @returns {Object} Les données de tsumego formatées pour le back-end.
+*/
+const pbFrontToBack = (stones, solColor, solCoord, boardSize, nextColor) => {
+  let tsumegoForBack = {};
+  tsumegoForBack["AB"] = [];
+  tsumegoForBack["AW"] = [];
+  tsumegoForBack["SZ"] = boardSize;
+  tsumegoForBack["C"] = `${nextColor} to play`;
+  tsumegoForBack["SOL"] = [[solColor == "white" ? "W" : "B", `${solCoord.substring(0, 1).toLowerCase()}${jsonData[solCoord.substring(1)]}`, "", ""]];
+  
+  Object.entries(stones).forEach(([key, value]) => {
+      if (value == "black") {
+          tsumegoForBack["AB"].push(`${key.substring(0, 1).toLowerCase()}${jsonData[key.substring(1)]}`);
+      } else {
+          tsumegoForBack["AW"].push(`${key.substring(0, 1).toLowerCase()}${jsonData[key.substring(1)]}`);
+      }
+  });
+  
+  console.log(tsumegoForBack);
+  return tsumegoForBack;
+};
+
+export default pbFrontToBack;
 </code></pre>
         </article>
     </section>

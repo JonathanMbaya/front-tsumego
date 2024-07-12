@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>pages/client/ProposeTsumegoView/ProposeTusmegoView.jsx - Documentation</title>
+    <title>services/api/user.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -35,7 +35,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">pages/client/ProposeTsumegoView/ProposeTusmegoView.jsx</h1>
+    <h1 class="page-title">services/api/user.js</h1>
     
 
     
@@ -45,39 +45,53 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React, { useEffect } from 'react';
-import { getUser } from '../../../services/session/session';
-import { useLocation, useNavigate } from 'react-router-dom';
-import TsumegoForm from '../../../components/TsumegoForm/TsumegoForm';
+            <pre class="prettyprint source linenums"><code>import { adminInstance, instance } from "./axiosInstance";
 
 /**
- * Le composant ProposeTsumegoView affiche le formulaire pour proposer un nouveau tsumego.
- * Si l'utilisateur n'est pas authentifié, il le redirige vers la page de connexion,
- * en conservant l'emplacement actuel pour revenir après une connexion réussie.
- * 
- * @component
- * @returns {JSX.Element} Le rendu du composant ProposeTsumegoView.
+ * Inscrit un nouvel utilisateur en envoyant une requête POST à l'API.
+ *
+ * @async
+ * @function singup
+ * @param {Object} user - Les informations de l'utilisateur à inscrire.
+ * @param {string} user.email - L'adresse email de l'utilisateur.
+ * @param {string} user.username - Le nom d'utilisateur.
+ * @param {string} user.password - Le mot de passe de l'utilisateur.
+ * @returns {Promise&lt;Object>} La réponse de l'API après l'inscription de l'utilisateur.
+ * @throws {Error} Si la requête échoue, une erreur est renvoyée.
  */
-const ProposeTsumegoView = () => {
-  const user = getUser(); // Fonction pour obtenir le statut d'authentification de l'utilisateur
-  const navigate = useNavigate(); // Hook de React Router pour la navigation
-  const location = useLocation(); // Hook de React Router pour obtenir l'emplacement actuel
+export async function singup(user) {
+   const response = await instance.post("signup/", user);
+   return response;
+}
 
-  useEffect(() => {
-    // Redirige vers la page de connexion si l'utilisateur n'est pas authentifié
-    if (!user) {
-      navigate("/login", { state: { from: location.pathname } }); // Conserve l'emplacement actuel pour redirection après connexion
-    }
-  }, []); // Le tableau de dépendances vide assure que useEffect s'exécute une seule fois 
+/**
+ * Connecte un utilisateur en envoyant une requête POST à l'API.
+ *
+ * @async
+ * @function login
+ * @param {Object} credentials - Les informations de connexion de l'utilisateur.
+ * @param {string} credentials.email - L'adresse email de l'utilisateur.
+ * @param {string} credentials.password - Le mot de passe de l'utilisateur.
+ * @returns {Promise&lt;Object>} La réponse de l'API après la connexion de l'utilisateur.
+ * @throws {Error} Si la requête échoue, une erreur est renvoyée.
+ */
+export async function login(credentials) {
+    const response = await instance.post("login/", credentials);
+    return response;
+}
 
-  return (
-    &lt;div className='container'>
-      &lt;TsumegoForm /> {/* Affiche le composant TsumegoForm pour proposer un nouveau tsumego */}
-    &lt;/div>
-  );
-};
-
-export default ProposeTsumegoView;
+/**
+ * Déconnecte l'utilisateur en envoyant une requête POST à l'API.
+ *
+ * @async
+ * @function logout
+ * @returns {Promise&lt;Object>} La réponse de l'API après la déconnexion de l'utilisateur.
+ * @throws {Error} Si la requête échoue, une erreur est renvoyée.
+ */
+export async function logout() {
+    const response = await adminInstance.post("logout/", {});
+    return response;
+}
 </code></pre>
         </article>
     </section>

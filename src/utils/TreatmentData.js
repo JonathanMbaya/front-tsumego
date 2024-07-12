@@ -27,6 +27,13 @@ const dataTest = {
     "Z": 26
 };
 
+/**
+ * Convertit les solutions en coordonnées de plateau.
+ *
+ * @function solutionData
+ * @param {Array} solutions - Tableau de solutions, chaque solution est un tableau contenant une chaîne de caractères.
+ * @returns {Array} Un tableau de chaînes de caractères représentant les coordonnées de plateau.
+ */
 export function solutionData(solutions) {
     return solutions.map(solution => {
         const row = solution[1].substring(0, 1).toUpperCase();
@@ -35,6 +42,14 @@ export function solutionData(solutions) {
     });
 }
 
+/**
+ * Positionne les pierres noires et blanches sur le plateau.
+ *
+ * @function positionBoard
+ * @param {Array} blackStones - Tableau de coordonnées des pierres noires.
+ * @param {Array} whiteStones - Tableau de coordonnées des pierres blanches.
+ * @returns {Object} Un objet représentant les positions des pierres sur le plateau.
+ */
 export function positionBoard(blackStones, whiteStones) {
     const board = {};
 

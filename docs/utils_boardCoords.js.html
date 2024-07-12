@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>pages/client/ProposeTsumegoView/ProposeTusmegoView.jsx - Documentation</title>
+    <title>utils/boardCoords.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -35,7 +35,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">pages/client/ProposeTsumegoView/ProposeTusmegoView.jsx</h1>
+    <h1 class="page-title">utils/boardCoords.js</h1>
     
 
     
@@ -45,39 +45,41 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React, { useEffect } from 'react';
-import { getUser } from '../../../services/session/session';
-import { useLocation, useNavigate } from 'react-router-dom';
-import TsumegoForm from '../../../components/TsumegoForm/TsumegoForm';
+            <pre class="prettyprint source linenums"><code>/**
+ * Génère un tableau contenant les lettres de 'A' à 'T', sauf la lettre 'I'.
+ * @module letters
+ */
 
 /**
- * Le composant ProposeTsumegoView affiche le formulaire pour proposer un nouveau tsumego.
- * Si l'utilisateur n'est pas authentifié, il le redirige vers la page de connexion,
- * en conservant l'emplacement actuel pour revenir après une connexion réussie.
- * 
- * @component
- * @returns {JSX.Element} Le rendu du composant ProposeTsumegoView.
+ * Tableau des lettres de 'A' à 'T' sans la lettre 'I'.
+ * @type {string[]}
  */
-const ProposeTsumegoView = () => {
-  const user = getUser(); // Fonction pour obtenir le statut d'authentification de l'utilisateur
-  const navigate = useNavigate(); // Hook de React Router pour la navigation
-  const location = useLocation(); // Hook de React Router pour obtenir l'emplacement actuel
+const letters = [];
 
-  useEffect(() => {
-    // Redirige vers la page de connexion si l'utilisateur n'est pas authentifié
-    if (!user) {
-      navigate("/login", { state: { from: location.pathname } }); // Conserve l'emplacement actuel pour redirection après connexion
-    }
-  }, []); // Le tableau de dépendances vide assure que useEffect s'exécute une seule fois 
+/**
+ * Code de caractère pour la lettre de début 'A'.
+ * @type {number}
+ */
+const startCharCode = 'A'.charCodeAt(0);
 
-  return (
-    &lt;div className='container'>
-      &lt;TsumegoForm /> {/* Affiche le composant TsumegoForm pour proposer un nouveau tsumego */}
-    &lt;/div>
-  );
-};
+/**
+ * Code de caractère pour la lettre de fin 'T'.
+ * @type {number}
+ */
+const endCharCode = 'T'.charCodeAt(0);
 
-export default ProposeTsumegoView;
+/**
+ * Boucle pour générer les lettres de 'A' à 'T' et les ajouter au tableau `letters`,
+ * en omettant la lettre 'I'.
+ */
+for (let i = startCharCode; i &lt;= endCharCode; i++) {
+  const letter = String.fromCharCode(i);
+  if (letter !== 'I') {
+    letters.push(letter);
+  }
+}
+
+export default letters;
 </code></pre>
         </article>
     </section>

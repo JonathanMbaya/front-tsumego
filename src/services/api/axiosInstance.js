@@ -3,6 +3,10 @@ import { getUser } from "../session/session";
 
 const BASE_URL = process.env.REACT_APP_API_URL;
 
+/**
+ * Instance d'axios avec la configuration de base pour l'application.
+ * @type {AxiosInstance}
+ */
 export const instance = axios.create({
    baseURL: BASE_URL,
    headers: {
@@ -10,6 +14,10 @@ export const instance = axios.create({
    },
 });
 
+/**
+ * Instance d'axios avec la configuration de base pour les requêtes d'administration.
+ * @type {AxiosInstance}
+ */
 export const adminInstance = axios.create({
    baseURL: BASE_URL,
    headers: {
@@ -17,7 +25,10 @@ export const adminInstance = axios.create({
    },
 });
 
-//const TOKEN_AUTHORIZATION = getUser()?.token;
+/**
+ * Intercepteur pour ajouter le token d'authentification aux requêtes d'administration.
+ * Cet intercepteur ajoute un en-tête 'Authorization' avec le token de l'utilisateur.
+ */
 adminInstance.interceptors.request.use(
   (request) => {
     request.headers.Authorization = `Token ${getUser()?.token.trim()}`;
