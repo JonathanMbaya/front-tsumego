@@ -1,7 +1,14 @@
-import React, { useState, useEffect } from 'react'; 
-import axios from 'axios'; 
-import Pagination from '../../../components/Pagination/Pagination'; 
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import Pagination from '../../../components/Pagination/Pagination';
 
+/**
+ * Composant ProblemView
+ * Affiche une liste de tsumegos (problèmes) avec pagination.
+ * 
+ * @component
+ * @returns {JSX.Element} Le rendu du composant ProblemView.
+ */
 function ProblemView() {
   const [tsumegos, setTsumegos] = useState([]); // État pour stocker la liste des tsumegos
   const [page, setPage] = useState(1); // État pour gérer la page actuelle
@@ -9,7 +16,12 @@ function ProblemView() {
   const [totalCount, setTotalCount] = useState(0); // État pour stocker le nombre total d'éléments
 
   useEffect(() => {
-    // Effet pour charger les tsumegos depuis l'API en fonction de la page courante
+    /**
+     * Effet pour charger les tsumegos depuis l'API en fonction de la page courante.
+     * 
+     * @function
+     * @async
+     */
     const fetchTsumegos = async () => {
       try {
         // Appel à l'API pour récupérer les données des tsumegos selon la page spécifiée
@@ -32,14 +44,19 @@ function ProblemView() {
     fetchTsumegos(); // Appel initial pour charger les tsumegos lors du montage ou lorsque 'page' change
   }, [page]); // Dépendance à 'page' pour que useEffect s'exécute à chaque changement de page
 
-  // Fonction pour gérer le changement de page
+  /**
+   * Fonction pour gérer le changement de page.
+   * 
+   * @function
+   * @param {number} newPage - La nouvelle page sélectionnée.
+   */
   const handlePageChange = (newPage) => {
     setPage(newPage); // Mettre à jour l'état 'page' avec la nouvelle page sélectionnée
   };
 
   return (
     <>
-      <h1>Problèmes</h1>  
+      <h1>Problèmes</h1>
 
       <table>
         <thead>

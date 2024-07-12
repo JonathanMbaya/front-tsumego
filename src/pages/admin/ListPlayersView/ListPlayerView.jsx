@@ -1,16 +1,31 @@
-import axios from 'axios'; 
-import React, { useEffect, useState } from 'react'; 
-import Pagination from '../../../components/Pagination/Pagination'; 
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import Pagination from '../../../components/Pagination/Pagination';
 
+/**
+ * Composant ListPlayerView
+ * Affiche une liste de joueurs avec pagination.
+ * 
+ * @component
+ */
 function ListPlayerView() {
     const [players, setPlayers] = useState([]); // État pour stocker la liste des joueurs
-
     const [page, setPage] = useState(1); // État pour gérer la page actuelle des joueurs
     const [totalPages, setTotalPages] = useState(1); // État pour stocker le nombre total de pages
     const [totalCount, setTotalCount] = useState(0); // État pour stocker le nombre total de joueurs
 
+    /**
+     * Utilise useEffect pour charger les joueurs lors du montage du composant.
+     * 
+     * @function
+     */
     useEffect(() => {
-        // Fonction pour récupérer la liste des joueurs depuis l'API
+        /**
+         * Récupère la liste des joueurs depuis l'API.
+         * 
+         * @async
+         * @function
+         */
         const fetchPlayers = async () => {
             try {
                 // Appel à l'API pour obtenir les données des joueurs
@@ -32,7 +47,12 @@ function ListPlayerView() {
         fetchPlayers(); // Appel initial pour charger les joueurs lors du montage du composant
     }, []); // Dépendance vide pour que useEffect s'exécute une seule fois lors du montage du composant
 
-    // Fonction pour gérer le changement de page des joueurs
+    /**
+     * Gère le changement de page des joueurs.
+     * 
+     * @function
+     * @param {number} newPage - La nouvelle page sélectionnée.
+     */
     const handlePageChange = (newPage) => {
         setPage(newPage); // Mettre à jour l'état 'page' avec la nouvelle page sélectionnée
     };

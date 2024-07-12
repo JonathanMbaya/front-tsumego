@@ -10,17 +10,20 @@ import "./LoginView.css"
  * Le composant LoginView gère l'authentification des utilisateurs via un formulaire de connexion.
  * Il affiche des messages d'erreur pour les tentatives de connexion invalides et redirige
  * les utilisateurs authentifiés vers la destination spécifiée ou par défaut.
+ * 
+ * @component
+ * @returns {JSX.Element} Le rendu du composant LoginView.
  */
 const LoginView = () => {
     const location = useLocation(); // Utilise le hook useLocation pour obtenir l'emplacement actuel
     const navigate = useNavigate(); // Utilise le hook useNavigate pour la navigation programmatique
-    const user = getUser() ? getUser() : null; // Obtient l'utilisateur authentifié ou null s'il est  non authentifié
+    const user = getUser() ? getUser() : null; // Obtient l'utilisateur authentifié ou null s'il est non authentifié
 
     const [errorMessage, setErrorMessage] = useState(""); // État pour contenir le message d'erreur
     const initials = { username: "", password: "" }; // Valeurs initiales pour le formulaire de connexion
     const schema = {
         username: Yup.string().required("Veuillez saisir votre pseudo"),
-        password: Yup.string().required("Veuillez saisir un mot de passe"), 
+        password: Yup.string().required("Veuillez saisir un mot de passe"),
     };
 
     const from = location.state?.from || "/listgames"; // Destination de redirection après une connexion réussie
@@ -31,7 +34,6 @@ const LoginView = () => {
             navigate("/");
         }
     }, []); // Le tableau de dépendances vide assure que useEffect s'exécute une seule fois
-
 
     return (
         <main className="container d-flex align-items-center pt-0">
@@ -44,17 +46,17 @@ const LoginView = () => {
                     onSubmit={(values) => {
                         const execAsync = async () => {
                             try {
-                                const response = await login(values)
+                                const response = await login(values);
                                 // enregistrement de l'utilisateur et de son token en stockage local
                                 setLoggedUser(response.data);
                                 // redirection page d'accueil
                                 navigate(from, { replace: true });
                             } catch (error) {
-                                const errorData = error?.response?.data
-                                if (errorData) setErrorMessage("Pseudo ou mot de passe incorrect")
+                                const errorData = error?.response?.data;
+                                if (errorData) setErrorMessage("Pseudo ou mot de passe incorrect");
                             }
-                        }
-                        execAsync()
+                        };
+                        execAsync();
                     }}
                 >
                     <Form>

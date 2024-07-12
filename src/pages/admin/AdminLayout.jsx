@@ -7,6 +7,9 @@ import './AdminLayout.css';
  * Le composant AdminLayout définit la mise en page pour les sections administratives de l'application.
  * Il inclut une barre de navigation spécifique à l'administration, une section principale pour le contenu
  * rendu par les routes enfants, et un pied de page.
+ * 
+ * @component
+ * @returns {JSX.Element} Le rendu du composant AdminLayout.
  */
 const AdminLayout = () => {
     return (
@@ -25,6 +28,5 @@ const AdminLayout = () => {
         </div>
     );
 };
-
 
 export default AdminLayout;

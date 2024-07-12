@@ -1,14 +1,17 @@
-import React, { useEffect } from 'react'
-import { getUser } from '../../../services/session/session'
-import { useLocation, useNavigate } from 'react-router-dom'
-import TsumegoForm from '../../../components/TsumegoForm/TsumegoForm'
+import React, { useEffect } from 'react';
+import { getUser } from '../../../services/session/session';
+import { useLocation, useNavigate } from 'react-router-dom';
+import TsumegoForm from '../../../components/TsumegoForm/TsumegoForm';
 
 /**
- * Le composant ProposeTusmegoView affiche le formulaire pour proposer un nouveau tsumego.
+ * Le composant ProposeTsumegoView affiche le formulaire pour proposer un nouveau tsumego.
  * Si l'utilisateur n'est pas authentifié, il le redirige vers la page de connexion,
  * en conservant l'emplacement actuel pour revenir après une connexion réussie.
+ * 
+ * @component
+ * @returns {JSX.Element} Le rendu du composant ProposeTsumegoView.
  */
-const ProposeTusmegoView = () => {
+const ProposeTsumegoView = () => {
   const user = getUser(); // Fonction pour obtenir le statut d'authentification de l'utilisateur
   const navigate = useNavigate(); // Hook de React Router pour la navigation
   const location = useLocation(); // Hook de React Router pour obtenir l'emplacement actuel
@@ -27,5 +30,4 @@ const ProposeTusmegoView = () => {
   );
 };
 
-
-export default ProposeTusmegoView
+export default ProposeTsumegoView;

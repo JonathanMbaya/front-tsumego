@@ -6,6 +6,12 @@ import 'animate.css';
 import Pagination from '../components/Pagination/Pagination';
 import { positionBoard } from '../utils/TreatmentData';
 
+/**
+ * Le composant ListTsumego affiche une liste de tsumegos paginée,
+ * permet aux utilisateurs de naviguer entre les pages et de voir les détails de chaque tsumego.
+ * @component
+ * @returns {JSX.Element} Le rendu du composant ListTsumego.
+ */
 function ListTsumego() {
     // États pour gérer la liste de tsumegos, le chargement, la pagination et le nombre total de pages
     const [listTsumego, setListTsumego] = useState([]);
@@ -42,7 +48,11 @@ function ListTsumego() {
         fetchTsumegos(); // Appel initial pour charger les tsumegos lors du montage ou lorsque 'page' change
     }, [page]); // Dépendance à 'page' pour que useEffect s'exécute à chaque changement de page
 
-    // Fonction pour obtenir le label de difficulté correspondant à un niveau donné
+    /**
+     * Fonction pour obtenir le label de difficulté correspondant à un niveau donné
+     * @param {string} difficulty - Le niveau de difficulté (BEG, INT, ADV)
+     * @returns {string} Le label de difficulté correspondant
+     */
     const getDifficultyLabel = (difficulty) => {
         switch (difficulty) {
             case 'BEG':
@@ -56,7 +66,10 @@ function ListTsumego() {
         }
     };
 
-    // Fonction pour gérer le changement de page
+    /**
+     * Fonction pour gérer le changement de page
+     * @param {number} newPage - Le nouveau numéro de page
+     */
     const handlePageChange = (newPage) => {
         setPage(newPage); // Mettre à jour l'état 'page' avec la nouvelle page sélectionnée
     };
