@@ -5,6 +5,11 @@ import './Goban.css';
 import { positionBoard, solutionData } from '../../utils/TreatmentData';
 import { useParams } from 'react-router-dom';
 
+/**
+ * Composant BoardGoban pour afficher et interagir avec le plateau de jeu de go.
+ * Ce composant permet aux utilisateurs de jouer des coups sur le plateau et de vérifier la solution.
+ * @component
+ */
 function BoardGoban() {
   // État local pour les positions des pierres
   const [stonesPlay, setStonesPlay] = useState({});
@@ -14,7 +19,7 @@ function BoardGoban() {
   // État local pour afficher le message de succès
   const [successMessage, setSuccessMessage] = useState('');
   const { id } = useParams(); // Extraction de l'id du problème via les paramètres de l'URL
-  const [reveal , setReveal] = useState('true')
+  const [reveal, setReveal] = useState('true');
 
   useEffect(() => {
     // Fonction asynchrone pour récupérer les données du problème
@@ -39,7 +44,10 @@ function BoardGoban() {
     fetchData();
   }, [id]); // Dépendance sur id, pour que le fetch se produise à chaque changement de l'id
 
-  // Fonction pour gérer le clic sur une intersection
+  /**
+   * Gère le clic sur une intersection du plateau de jeu.
+   * @param {string} intersection - L'intersection cliquée.
+   */
   const handleIntersectionClick = (intersection) => {
     setStonesPlay((prevStonesPlay) => {
       const newStonesPlay = { ...prevStonesPlay };
@@ -58,23 +66,30 @@ function BoardGoban() {
     }
   };
 
+  /**
+   * Récupère l'étiquette de difficulté en fonction du code de difficulté.
+   * @param {string} difficulty - Le code de difficulté ('BEG', 'INT', 'ADV').
+   * @returns {string} L'étiquette de difficulté correspondante.
+   */
   const getDifficultyLabel = (difficulty) => {
     switch (difficulty) {
-    case 'BEG':
+      case 'BEG':
         return 'Débutant';
-    case 'INT':
+      case 'INT':
         return 'Intermédiaire';
-    case 'ADV':
+      case 'ADV':
         return 'Avancé';
-    default:
+      default:
         return 'Inconnu';
     }
   };
 
+  /**
+   * Affiche ou masque la solution.
+   */
   const toggleReveal = () => {
     setReveal((prevReveal) => !prevReveal);
   };
-
 
   return (
     <div className="goban-container">
@@ -82,31 +97,23 @@ function BoardGoban() {
         <>
           <div className='info-goban'>
             <h1>Trouvez la solution en un seul coup</h1>
-              <h2 style={{ marginTop: '2rem' }}>A toi de jouer !</h2>
+            <h2 style={{ marginTop: '2rem' }}>A toi de jouer !</h2>
 
-              <div style={{ textAlign: 'center' }}>
-                <p>Niveau : {getDifficultyLabel(gameData.difficulty)}</p>
+            <div style={{ textAlign: 'center' }}>
+              <p>Niveau : {getDifficultyLabel(gameData.difficulty)}</p>
 
-                {successMessage && <p className='response-result'>{successMessage}</p>}
+              {successMessage && <p className='response-result'>{successMessage}</p>}
 
+              {/* Affichage de la solution */}
+              <div className="solution-container">
+                <button className='btn-reveal' onClick={toggleReveal}>
+                  {!reveal ? 'Cacher la solution' : 'Voir la solution'}
+                </button>
 
-                {/* Affichage de la solution */}
-                <div className="solution-container">
-
-                  <button className='btn-reveal' onClick={toggleReveal}>
-                    {!reveal ? 'Cacher la solution' : 'Voir la solution'}
-                  </button>
-
-                  {!reveal && <p className='reveal'>{solution.join(', ')}</p>}
-
-                </div>
+                {!reveal && <p className='reveal'>{solution.join(', ')}</p>}
               </div>
-
-
+            </div>
           </div>
-
-            
-
 
           {/* Plateau pour jouer */}
           <ReactGoban
@@ -117,11 +124,7 @@ function BoardGoban() {
             onIntersectionClick={handleIntersectionClick}
           />
         </>
-
-
-
       )}
-
     </div>
   );
 }

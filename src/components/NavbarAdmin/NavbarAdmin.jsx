@@ -4,18 +4,29 @@ import "./NavbarAdmin.css";
 import { getUser, removeUser } from "../../services/session/session";
 import { logout } from "../../services/api/user";
 
+/**
+ * Composant NavbarAdmin pour afficher la barre de navigation de l'administrateur.
+ * @component
+ * @returns {JSX.Element} Élément JSX du composant NavbarAdmin.
+ */
 function NavbarAdmin() {
     const navigate = useNavigate();
-    const location = useLocation();  // Utiliser useLocation pour obtenir le chemin actuel
+    const location = useLocation(); // Utiliser useLocation pour obtenir le chemin actuel
     const user = getUser();
     const [isOpen, setIsOpen] = useState(false);
 
+    /**
+     * Fonction pour basculer l'état du menu burger.
+     */
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };
 
+    /**
+     * Fonction pour gérer la déconnexion de l'utilisateur.
+     */
     const handleLogout = () => {
-        // requête de déconnexion
+        // Requête de déconnexion
         const execAsync = async () => {
             try {
                 const response = await logout();
@@ -29,7 +40,11 @@ function NavbarAdmin() {
         execAsync();
     };
 
-    // Fonction pour vérifier si un lien est actif
+    /**
+     * Fonction pour vérifier si un lien est actif.
+     * @param {string} path - Le chemin du lien à vérifier.
+     * @returns {boolean} - True si le lien est actif, sinon False.
+     */
     const isLinkActive = (path) => location.pathname === path;
 
     return (
@@ -47,7 +62,7 @@ function NavbarAdmin() {
                     {!user && (
                         <>
                             <li>
-                                <Link to={"/login"}>Déconnexion <span class="material-symbols-outlined">logout</span></Link>
+                                <Link to={"/login"}>Déconnexion <span className="material-symbols-outlined">logout</span></Link>
                             </li>
                         </>
                     )}
