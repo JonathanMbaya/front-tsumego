@@ -36,6 +36,6 @@ Taper la commande:
     - npm run build
 
 
-
-[** Lien du serveur pour récupérer le back **] (https://github.com/brightmarc90/go_platform_back) : \https://github.com/brightmarc90/go_platform_back
+** Lien du serveur pour récupérer le back ** \
+[https://github.com/brightmarc90/go_platform_back] (https://github.com/brightmarc90/go_platform_back)
 
