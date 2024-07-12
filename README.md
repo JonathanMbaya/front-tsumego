@@ -18,7 +18,7 @@ Pour installer les dépendances, exécutez la commande suivante :
 
     - npm start
 
-    - lien de l'interface [http://localhost:3000] (http://localhost:3000)
+    -  [lien de l'interface] (http://localhost:3000)
       
 "La page se rechargera lorsque vous apporterez des modifications.
 Vous pouvez également voir des erreurs de lint dans la console."
