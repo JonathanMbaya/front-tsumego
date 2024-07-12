@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>components/Navbar/Navbar.jsx - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#AdminLayout">AdminLayout</a></li><li><a href="global.html#BoardGoban">BoardGoban</a></li><li><a href="global.html#ClientLayout">ClientLayout</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#ListPlayerView">ListPlayerView</a></li><li><a href="global.html#ListTsumego">ListTsumego</a></li><li><a href="global.html#LoginView">LoginView</a></li><li><a href="global.html#Navbar">Navbar</a></li><li><a href="global.html#NavbarAdmin">NavbarAdmin</a></li><li><a href="global.html#Pagination">Pagination</a></li><li><a href="global.html#ProblemView">ProblemView</a></li><li><a href="global.html#ProposeTsumegoView">ProposeTsumegoView</a></li><li><a href="global.html#SignupView">SignupView</a></li><li><a href="global.html#TsumegoForm">TsumegoForm</a></li><li><a href="global.html#UserForm">UserForm</a></li></ul>
+    
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">components/Navbar/Navbar.jsx</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useState } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import "./Navbar.css";
+import { getUser, removeUser } from "../../services/session/session";
+import { logout } from "../../services/api/user";
+
+/**
+ * Composant Navbar pour afficher la barre de navigation.
+ * @component
+ * @returns {JSX.Element} Élément JSX du composant Navbar.
+ */
+function Navbar() {
+  const navigate = useNavigate();
+  const user = getUser();
+  const [isOpen, setIsOpen] = useState(false);
+
+  /**
+   * Fonction pour basculer l'état du menu burger.
+   */
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  /**
+   * Fonction pour gérer la déconnexion de l'utilisateur.
+   */
+  const handleLogout = () => {
+    // Requête de déconnexion
+    const execAsync = async () => {
+      try {
+        const response = await logout();
+        removeUser();
+        navigate(0);
+      } catch (error) {
+        const errorData = error?.response;
+        if (errorData) console.log(errorData);
+      }
+    };
+    execAsync();
+  };
+
+  return (
+    &lt;div className="navbar py-0">
+      &lt;nav>
+        &lt;div className="navbar-ul">
+          &lt;div className="logo">
+            &lt;Link to="/">
+              &lt;h3>TSUMEGO&lt;/h3>
+            &lt;/Link>
+          &lt;/div>
+
+          &lt;div>
+            &lt;ul className="nav-central">
+              &lt;li>
+                &lt;Link
+                  to="/listgames"
+                  className="link-without-decoration item-nav"
+                >
+                  Accéder au Tsumego
+                  &lt;span className="material-symbols-outlined">
+                    sports_esports
+                  &lt;/span>
+                &lt;/Link>
+              &lt;/li>
+              &lt;li>
+                &lt;Link
+                  to="/submit-problem"
+                  className="link-without-decoration item-nav"
+                >
+                  Soumettre un problème
+                &lt;/Link>
+              &lt;/li>
+            &lt;/ul>
+          &lt;/div>
+
+          &lt;div>
+            {!user &amp;&amp; (
+              &lt;ul className="d-flex">
+                &lt;li className="me-0 border-2 border-end border-dark-subtle">
+                  &lt;Link to={"/login"}>Connexion&lt;/Link>
+                &lt;/li>
+                &lt;li className="ms-0">
+                  &lt;Link to={"/signup"}>Inscription&lt;/Link>
+                &lt;/li>
+              &lt;/ul>
+            )}
+            {user &amp;&amp; (
+              &lt;div className="dropdown">
+                &lt;a
+                  href="#"
+                  className="dropdown-toggle d-flex align-items-center"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  &lt;span className="material-symbols-outlined pe-2">
+                    account_circle
+                  &lt;/span>
+                  {user.user.username}
+                &lt;/a>
+                &lt;ul className="dropdown-menu">
+                  &lt;li>
+                    &lt;button
+                      className="dropdown-item d-flex"
+                      onClick={handleLogout}
+                    >
+                      &lt;span className="material-symbols-outlined pe-2">
+                        logout
+                      &lt;/span>
+                      Déconnexion
+                    &lt;/button>
+                  &lt;/li>
+                  {user.user.role.is_admin &amp;&amp; (
+                    &lt;li>
+                      &lt;Link className="dropdown-item" to="#">
+                        Administration
+                      &lt;/Link>
+                    &lt;/li>
+                  )}
+                &lt;/ul>
+              &lt;/div>
+            )}
+          &lt;/div>
+        &lt;/div>
+      &lt;/nav>
+
+      &lt;div className="nav-burger-menu">
+        &lt;div className="logo">
+          &lt;Link to="/">
+            &lt;h3>TSUMEGO&lt;/h3>
+          &lt;/Link>
+        &lt;/div>
+
+        &lt;div className="burger-icon" onClick={toggleMenu}>
+          &lt;span className="line">&lt;/span>
+          &lt;span className="line">&lt;/span>
+          &lt;span className="line">&lt;/span>
+        &lt;/div>
+      &lt;/div>
+
+      &lt;div className={`menu ${isOpen ? "open" : ""}`}>
+        &lt;ul>
+          {!user &amp;&amp; (
+            &lt;>
+              &lt;li>
+                &lt;Link to={"/login"}>Connexion&lt;/Link>
+              &lt;/li>
+              &lt;li>
+                &lt;Link to={"/signup"}>Inscription&lt;/Link>
+              &lt;/li>
+            &lt;/>
+          )}
+          {user &amp;&amp; (
+            &lt;>
+              &lt;li>
+                &lt;Link to={"#"} className="d-flex">
+                  &lt;span className="material-symbols-outlined pe-2">
+                    account_circle
+                  &lt;/span>
+                  {user.user.username}
+                &lt;/Link>
+              &lt;/li>
+              &lt;li>
+                &lt;Link to={"/"} onClick={handleLogout}>
+                  Déconnexion
+                &lt;/Link>
+              &lt;/li>
+              {user.user.role.is_admin &amp;&amp; (
+                &lt;li>
+                  &lt;Link to={"#"} className="d-flex">
+                    Administration
+                  &lt;/Link>
+                &lt;/li>
+              )}
+            &lt;/>
+          )}
+          &lt;li>
+            &lt;Link to="/" className="link-without-decoration">
+              Accueil
+            &lt;/Link>
+          &lt;/li>
+          &lt;li>
+            &lt;Link to="/listgames" className="link-without-decoration">
+              Jouer au Tsumego
+            &lt;/Link>
+          &lt;/li>
+          &lt;li>
+            &lt;Link to="/submit-problem" className="link-without-decoration">
+              Soumettre un problème
+            &lt;/Link>
+          &lt;/li>
+        &lt;/ul>
+      &lt;/div>
+    &lt;/div>
+  );
+}
+
+export default Navbar;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.3</a> on Fri Jul 12 2024 15:14:22 GMT+0200 (heure d’été d’Europe centrale) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>

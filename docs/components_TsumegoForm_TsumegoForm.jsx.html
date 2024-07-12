@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>components/TsumegoForm/TsumegoForm.jsx - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#AdminLayout">AdminLayout</a></li><li><a href="global.html#BoardGoban">BoardGoban</a></li><li><a href="global.html#ClientLayout">ClientLayout</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#ListPlayerView">ListPlayerView</a></li><li><a href="global.html#ListTsumego">ListTsumego</a></li><li><a href="global.html#LoginView">LoginView</a></li><li><a href="global.html#Navbar">Navbar</a></li><li><a href="global.html#NavbarAdmin">NavbarAdmin</a></li><li><a href="global.html#Pagination">Pagination</a></li><li><a href="global.html#ProblemView">ProblemView</a></li><li><a href="global.html#ProposeTsumegoView">ProposeTsumegoView</a></li><li><a href="global.html#SignupView">SignupView</a></li><li><a href="global.html#TsumegoForm">TsumegoForm</a></li><li><a href="global.html#UserForm">UserForm</a></li></ul>
+    
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">components/TsumegoForm/TsumegoForm.jsx</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { Field, Form, Formik } from 'formik'
+import React, { useEffect, useState } from 'react'
+import { getUser } from '../../services/session/session'
+import { Goban } from 'react-goban'
+import letters from '../../utils/boardCoords'
+import pbFrontToBack from '../../utils/pbFrontToBack'
+import { createTsumego } from '../../services/api/tsumegos'
+import { useNavigate } from 'react-router-dom'
+
+/**
+ * Composant `TsumegoForm` pour créer un nouveau Tsumego.
+ * @component
+ * @returns {JSX.Element} Élément JSX du composant `TsumegoForm`.
+ */
+const TsumegoForm = () => {
+    const navigate = useNavigate()
+    const [coordList, setCoordList] = useState([])  // Liste des coordonnées disponibles pour le Tsumego
+    const [boardSize, setBoardSize] = useState(9)   // Taille actuelle du plateau de jeu
+    const [nextColor, setNextColor] = useState("black")  // Couleur du joueur suivant
+    const [stones, setStones] = useState({})  // Liste des pierres placées sur le plateau
+    const [solColor, setSolColor] = useState("black")  // Couleur de la pierre pour la solution du problème
+    const user = getUser()
+    const initials = {problem_desc: {}, description: null, difficulty: "ELM", submitter:user?.user.id}
+
+    /**
+     * Met à jour la taille du plateau de jeu et réinitialise les pierres.
+     * @param {React.ChangeEvent&lt;HTMLInputElement>} event - L'événement de changement de l'option de taille du plateau.
+     */
+    const handleOptionChange = (event) => {
+        setBoardSize(event.target.value)
+        setStones({})
+    }
+
+    /**
+     * Gère le clic sur une intersection du plateau de jeu pour placer une pierre.
+     * Alterne la couleur de la pierre entre noir et blanc.
+     * @param {string} coord - La coordonnée de l'intersection cliquée.
+     */
+    const handleIntersectionClick = (coord) => {
+        setStones((prevStones) => {
+            const newStones = { ...prevStones }
+            newStones[coord] = nextColor
+            return newStones
+        })
+        setNextColor(nextColor === "black" ? "white" : "black")
+    }
+
+    /**
+     * Met à jour la couleur de la pierre pour la solution du problème.
+     * @param {React.ChangeEvent&lt;HTMLInputElement>} event - L'événement de changement de l'option de couleur de la solution.
+     */
+    const handleSolColor = (event) => {
+        setSolColor(event.target.value)
+    }
+
+    /**
+     * Met à jour la liste des coordonnées en fonction de la taille du plateau.
+     */
+    useEffect(() => {
+        const newCoordList = []
+        for (let j = 0; j &lt;= letters.length; j++){
+            for (let i = 1; i &lt;= Number(boardSize); i++) {
+                newCoordList.push(letters[j]+i)
+            }
+            if (j+1 === Number(boardSize)) break
+        }
+        setCoordList(newCoordList)
+    }, [boardSize, stones])
+    
+    return (
+        &lt;div className="mt-5">
+            &lt;Formik initialValues={initials}
+            onSubmit={(values) => {
+                values.problem_desc = pbFrontToBack(stones, solColor, values.sol_coord, boardSize, nextColor)
+                // envoyer la requête pour créer le Tsumego
+                const execAsync = async () => {
+                    try {
+                        const response = await createTsumego(values)
+                        alert("Tsumego enregistré")
+                        // redirection vers la page des Tsumegos
+                        navigate("/listgames")
+                    } catch (error) {
+                        const errorData = error?.response;
+                        if (errorData) console.log(errorData);
+                    }
+                } 
+                execAsync()
+            }}>
+                &lt;Form>
+                    &lt;div className="container">
+                        &lt;div className="row">
+                            &lt;div className="col-md-8 d-flex justify-content-center">
+                                {/* Plateau de jeu avec le composant Goban */}
+                                &lt;Goban size={boardSize} theme="classic" stones={stones} nextToPlay={nextColor} onIntersectionClick={handleIntersectionClick} />
+                            &lt;/div>
+                            &lt;div className="col-md-4">
+                                &lt;div className="btn-group mb-4" role="group" aria-label="Basic radio toggle button group">
+                                    {/* Options de taille du plateau */}
+                                    &lt;input type="radio" className="btn-check" name="bord_size" value={9} id="btnradio1" autoComplete="off" checked={boardSize === "9"} onChange={handleOptionChange}/>
+                                    &lt;label className="btn btn-outline-secondary" htmlFor="btnradio1">9x9&lt;/label>
+
+                                    &lt;input type="radio" className="btn-check" name="bord_size" value={13} id="btnradio2" autoComplete="off" checked={boardSize === "13"} onChange={handleOptionChange}/>
+                                    &lt;label className="btn btn-outline-secondary" htmlFor="btnradio2">13x13&lt;/label>
+
+                                    &lt;input type="radio" className="btn-check" name="bord_size" value={19} id="btnradio3" autoComplete="off" checked={boardSize === "19"} onChange={handleOptionChange}/>
+                                    &lt;label className="btn btn-outline-secondary" htmlFor="btnradio3">19x19&lt;/label>
+                                &lt;/div>
+                                &lt;div className="mb-4">
+                                    &lt;label htmlFor="description" className="form-label">Description du problème&lt;/label>
+                                    &lt;Field name="description" as="textarea" className="form-textarea form-control" />
+                                &lt;/div>
+                                &lt;div className="mb-4">
+                                    &lt;label htmlFor="difficulty" className="form-label">Niveau de difficulté&lt;/label>
+                                    &lt;Field name="difficulty" as="select" className="my-select form-select">
+                                        &lt;option value="ELM">Elémentaire&lt;/option>
+                                        &lt;option value="BEG">Débutant&lt;/option>
+                                        &lt;option value="INT">Intermédiaire&lt;/option>
+                                        &lt;option value="ADV">Avancé&lt;/option>
+                                    &lt;/Field>
+                                &lt;/div>
+                                &lt;div>
+                                    &lt;label htmlFor="sol_coord">Solution&lt;/label>
+                                    &lt;div className="d-flex align-items-center">
+                                        &lt;div className="form-check me-3">
+                                            &lt;input className="form-check-input" type="radio" name="sol_color" id="sol_color_b" value={"black"} onChange={handleSolColor} checked={solColor === "black"}/>
+                                            &lt;label className="form-check-label" htmlFor="sol_color_b">Noir&lt;/label>
+                                        &lt;/div>
+                                        &lt;div className="form-check me-3">
+                                            &lt;input className="form-check-input" type="radio" name="sol_color" id="sol_color_w" value={"white"} onChange={handleSolColor} checked={solColor === "white"}/>
+                                            &lt;label className="form-check-label" htmlFor="sol_color_w">Blanc&lt;/label>
+                                        &lt;/div>
+                                        &lt;div>                                
+                                            &lt;Field name="sol_coord" as="select" className="my-select form-select" id="sol_coord">
+                                                {  
+                                                    coordList.map((coord, index) => (
+                                                        &lt;option key={index} value={coord}>{coord}&lt;/option>
+                                                    ))                                         
+                                                }
+                                            &lt;/Field>
+                                        &lt;/div>                            
+                                    &lt;/div>                        
+                                &lt;/div>
+                                &lt;div className="mt-4">
+                                    {/* Bouton de soumission du formulaire */}
+                                    &lt;button type="submit" className='btn btn-primary'>Soumettre&lt;/button>
+                                &lt;/div>
+                            &lt;/div>                             
+                        &lt;/div>                       
+                    &lt;/div>
+                &lt;/Form>
+            &lt;/Formik>
+        &lt;/div>
+    )
+}
+
+export default TsumegoForm
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.3</a> on Fri Jul 12 2024 15:14:22 GMT+0200 (heure d’été d’Europe centrale) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>
