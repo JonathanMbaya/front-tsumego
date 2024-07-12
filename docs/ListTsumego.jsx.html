@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>ListTsumego.jsx - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#AdminLayout">AdminLayout</a></li><li><a href="global.html#ClientLayout">ClientLayout</a></li><li><a href="global.html#ListPlayerView">ListPlayerView</a></li><li><a href="global.html#ListTsumego">ListTsumego</a></li><li><a href="global.html#LoginView">LoginView</a></li><li><a href="global.html#ProblemView">ProblemView</a></li><li><a href="global.html#ProposeTsumegoView">ProposeTsumegoView</a></li><li><a href="global.html#SignupView">SignupView</a></li></ul>
+    
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">ListTsumego.jsx</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Goban as ReactGoban } from 'react-goban';
+import axios from 'axios';
+import 'animate.css';
+import Pagination from '../components/Pagination/Pagination';
+import { positionBoard } from '../utils/TreatmentData';
+
+/**
+ * Le composant ListTsumego affiche une liste de tsumegos paginée,
+ * permet aux utilisateurs de naviguer entre les pages et de voir les détails de chaque tsumego.
+ * @component
+ * @returns {JSX.Element} Le rendu du composant ListTsumego.
+ */
+function ListTsumego() {
+    // États pour gérer la liste de tsumegos, le chargement, la pagination et le nombre total de pages
+    const [listTsumego, setListTsumego] = useState([]);
+    const [showLoading, setShowLoading] = useState(false);
+    const [page, setPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(1);
+    const [totalCount, setTotalCount] = useState(0);
+
+    // Effet pour charger les tsumegos depuis l'API en fonction de la page courante
+    useEffect(() => {
+        const fetchTsumegos = async () => {
+            setShowLoading(true); // Afficher l'indicateur de chargement
+
+            try {
+                // Appel à l'API pour récupérer les données des tsumegos selon la page spécifiée
+                const response = await axios.get(`http://127.0.0.1:8000/api/tsumegos/?page=${page}`);
+
+                // Vérifier si la structure de la réponse est comme attendue
+                if (response.data &amp;&amp; Array.isArray(response.data.results)) {
+                    const currentTsumegos = response.data.results; // Données des tsumegos pour la page courante
+                    setListTsumego(currentTsumegos); // Mettre à jour la liste des tsumegos
+                    setTotalPages(Math.ceil(response.data.count / 10)); // Calculer le nombre total de pages
+                    setTotalCount(response.data.count); // Mettre à jour le nombre total de tsumegos
+
+                    setShowLoading(false); // Cacher l'indicateur de chargement une fois terminé
+                } else {
+                    console.error('Structure de réponse inattendue :', response.data);
+                }
+            } catch (error) {
+                console.error('Erreur lors de la récupération de la liste de tsumegos :', error);
+            }
+        };
+
+        fetchTsumegos(); // Appel initial pour charger les tsumegos lors du montage ou lorsque 'page' change
+    }, [page]); // Dépendance à 'page' pour que useEffect s'exécute à chaque changement de page
+
+    /**
+     * Fonction pour obtenir le label de difficulté correspondant à un niveau donné
+     * @param {string} difficulty - Le niveau de difficulté (BEG, INT, ADV)
+     * @returns {string} Le label de difficulté correspondant
+     */
+    const getDifficultyLabel = (difficulty) => {
+        switch (difficulty) {
+            case 'BEG':
+                return 'Débutant';
+            case 'INT':
+                return 'Intermédiaire';
+            case 'ADV':
+                return 'Avancé';
+            default:
+                return 'Inconnu';
+        }
+    };
+
+    /**
+     * Fonction pour gérer le changement de page
+     * @param {number} newPage - Le nouveau numéro de page
+     */
+    const handlePageChange = (newPage) => {
+        setPage(newPage); // Mettre à jour l'état 'page' avec la nouvelle page sélectionnée
+    };
+
+    return (
+        &lt;div className="container">
+            &lt;h1>Jouer au Tsumego&lt;/h1>
+            &lt;p style={{ textAlign: 'center' }}>Résoudre tous les niveaux&lt;/p>
+
+            {/* Affichage de l'indicateur de chargement si showLoading est vrai */}
+            {showLoading &amp;&amp; &lt;p className='loading-page'>Chargement...&lt;/p>}
+
+            &lt;div className='game animate__animated animate__fadeInUp'>
+                {/* Mapping sur la liste des tsumegos pour afficher chaque élément */}
+                {listTsumego.map((tsumego) => (
+                    &lt;Link key={tsumego.id} to={`/listgames/game/${tsumego.id}`} className="mb-3">
+                        &lt;div className='game-item pb-4'>
+                            {/* Utilisation de ReactGoban pour afficher le tableau de jeu */}
+                            &lt;div className='backImage'>
+                                &lt;ReactGoban
+                                    size="19"
+                                    theme="classic"
+                                    stones={positionBoard(tsumego.problem_desc.AB, tsumego.problem_desc.AW)}
+                                    nextToPlay="black"
+                                />
+                            &lt;/div>
+                            &lt;p>{getDifficultyLabel(tsumego.difficulty)}&lt;/p> {/* Affichage du label de difficulté */}
+                            &lt;span className="material-symbols-outlined">
+                                check_small {/* Placeholder pour une icône */}
+                            &lt;/span>
+                        &lt;/div>
+                    &lt;/Link>
+                ))}
+            &lt;/div>
+
+            {/* Composant Pagination pour la navigation entre les pages */}
+            &lt;Pagination
+                currentPage={page}
+                totalCount={totalCount}
+                pageSize={10}
+                onPageChange={handlePageChange}
+            />
+        &lt;/div>
+    );
+}
+
+export default ListTsumego;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.3</a> on Fri Jul 12 2024 14:50:56 GMT+0200 (heure d’été d’Europe centrale) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>
