@@ -1,65 +1,79 @@
 import React from "react";
-import { createBrowserRouter } from "react-router-dom"; // Import de la fonction createBrowserRouter depuis react-router-dom
-import ListTsumego from "../pages/ListTsumego"; // Import du composant ListTsumego depuis le chemin spécifié
-import TsumegoGame from "../pages/TsumegoGame"; // Import du composant TsumegoGame depuis le chemin spécifié
-import SignupView from "../pages/client/SignupView/SignupView"; // Import du composant SignupView depuis le chemin spécifié
-import LoginView from "../pages/client/LoginView/LoginView"; // Import du composant LoginView depuis le chemin spécifié
-import ClientLayout from "../pages/client/ClientLayout"; // Import du composant ClientLayout depuis le chemin spécifié
-import ProposeTusmegoView from "../pages/client/ProposeTsumegoView/ProposeTusmegoView"; // Import du composant ProposeTusmegoView depuis le chemin spécifié
-import AdminLayout from "../pages/admin/AdminLayout"; // Import du composant AdminLayout depuis le chemin spécifié
-import ListPlayerView from "../pages/admin/ListPlayersView/ListPlayerView"; // Import du composant ListPlayerView depuis le chemin spécifié
-import StatsView from "../pages/admin/StatsView/StatsView"; // Import du composant StatsView depuis le chemin spécifié
-import ProblemView from "../pages/admin/SubmitProblemsView/ProblemView"; // Import du composant ProblemView depuis le chemin spécifié
+import {createBrowserRouter } from "react-router-dom";
+import ListTsumego from "../pages/ListTsumego";
+import TsumegoGame from "../pages/TsumegoGame";
+import SignupView from "../pages/client/SignupView/SignupView";
+import LoginView from "../pages/client/LoginView/LoginView";
+import ClientLayout from "../pages/client/ClientLayout";
+import ProposeTusmegoView from "../pages/client/ProposeTsumegoView/ProposeTusmegoView";
+import AdminLayout from "../pages/admin/AdminLayout";
+import ListPlayerView from "../pages/admin/ListPlayersView/ListPlayerView";
+import StatsView from "../pages/admin/StatsView/StatsView";
+import ProblemView from "../pages/admin/SubmitProblemsView/ProblemView";
 
+// Création des routes avec createBrowserRouter
 const routes = createBrowserRouter([
+    // Route pour l'inscription
     {
-        path: "/signup", // Chemin pour l'inscription
-        element: <SignupView /> // Composant à rendre quand le chemin '/signup' est atteint
+        path: "/signup",  // Chemin de l'URL "/signup"
+        element: <SignupView />  // Affiche le composant SignupView lorsque l'URL correspond à "/signup"
     },
+    // Route pour la connexion
     {
-        path: "/login", // Chemin pour la connexion
-        element: <LoginView /> // Composant à rendre quand le chemin '/login' est atteint
+        path: "/login",  // Chemin de l'URL "/login"
+        element: <LoginView />  // Affiche le composant LoginView lorsque l'URL correspond à "/login"
     },
+    // Routes pour les utilisateurs clients
     {
-        path: "/", // Chemin racine
-        element: <ClientLayout />, // Composant de mise en page pour les pages client
-        children: [ // Routes enfants sous '/client'
+        path: "/",  // Chemin de l'URL racine "/"
+        element: <ClientLayout />,  // Layout principal pour les routes client
+        children: [
+            // Route par défaut pour afficher la liste des problèmes
             {
-                path: "", // Chemin vide correspondant à '/'
-                element: <ListTsumego /> // Composant ListTsumego rendu quand '/client' est atteint
+                path: "",  // Chemin de l'URL (sans extension)
+                element: <ListTsumego />  // Affiche le composant ListTsumego lorsque l'URL correspond à "/"
             },
+            // Route pour afficher la liste des jeux
             {
-                path: "listgames", // Chemin pour la liste des jeux
-                element: <ListTsumego /> // Composant ListTsumego rendu quand '/client/listgames' est atteint
+                path: "listgames",  // Chemin de l'URL pour la liste des jeux "/listgames"
+                element: <ListTsumego />  // Affiche le composant ListTsumego lorsque l'URL correspond à "/listgames"
             },
+            // Route pour afficher un jeu spécifique par son ID
             {
-                path: "listgames/game/:id", // Chemin pour un jeu spécifique
-                element: <TsumegoGame /> // Composant TsumegoGame rendu quand '/client/listgames/game/:id' est atteint
+                path: "listgames/game/:id",  // Chemin de l'URL pour un jeu spécifique avec l'ID dynamique "/listgames/game/:id"
+                element: <TsumegoGame />  // Affiche le composant TsumegoGame lorsque l'URL correspond à "/listgames/game/:id"
             },
+            // Route pour soumettre un problème
             {
-                path: "submit-problem", // Chemin pour soumettre un problème
-                element: <ProposeTusmegoView /> // Composant ProposeTusmegoView rendu quand '/client/submit-problem' est atteint
+                path: "submit-problem",  // Chemin de l'URL pour soumettre un problème "/submit-problem"
+                element: <ProposeTusmegoView />  // Affiche le composant ProposeTusmegoView lorsque l'URL correspond à "/submit-problem"
             }
         ]
     },
+    // Routes pour les administrateurs
     {
-        path: "/admin", // Chemin pour l'administration
-        element: <AdminLayout />, // Composant de mise en page pour les pages d'administration
-        children: [ // Routes enfants sous '/admin'
+        path: "/admin",  // Chemin de l'URL "/admin"
+        element: <AdminLayout />,  // Layout principal pour les routes admin
+        children: [
+            // Route pour afficher la liste des joueurs
             {
-                path: "listplayers", // Chemin pour la liste des joueurs
-                element: <ListPlayerView/> // Composant ListPlayerView rendu quand '/admin/listplayers' est atteint
+                path: "listplayers",  // Chemin de l'URL pour la liste des joueurs "/admin/listplayers"
+                element: <ListPlayerView />  // Affiche le composant ListPlayerView lorsque l'URL correspond à "/admin/listplayers"
             },
+            // Route pour afficher les statistiques
             {
-                path: "stats", // Chemin pour les statistiques
-                element: <StatsView/> // Composant StatsView rendu quand '/admin/stats' est atteint
+                path: "stats",  // Chemin de l'URL pour les statistiques "/admin/stats"
+                element: <StatsView />  // Affiche le composant StatsView lorsque l'URL correspond à "/admin/stats"
             },
+            // Route pour soumettre des problèmes
             {
-                path: "problems", // Chemin pour les problèmes
-                element: <ProblemView/> // Composant ProblemView rendu quand '/admin/problems' est atteint
+                path: "problems",  // Chemin de l'URL pour soumettre des problèmes "/admin/problems"
+                element: <ProblemView />  // Affiche le composant ProblemView lorsque l'URL correspond à "/admin/problems"
             }
         ]
     }
 ]);
 
-export default routes; // Exporte les routes définies pour les utiliser dans l'application
+export default routes;  // Exporte les routes configurées
+
+
