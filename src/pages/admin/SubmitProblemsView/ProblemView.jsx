@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'; // Import des hooks useState et useEffect depuis React
-import axios from 'axios'; // Import de axios pour les requêtes HTTP
-import Pagination from '../../../components/Pagination/Pagination'; // Import du composant Pagination depuis un chemin spécifique
+import React, { useState, useEffect } from 'react'; 
+import axios from 'axios'; 
+import Pagination from '../../../components/Pagination/Pagination'; 
 
 function ProblemView() {
   const [tsumegos, setTsumegos] = useState([]); // État pour stocker la liste des tsumegos

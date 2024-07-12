@@ -1,6 +1,6 @@
-import axios from 'axios'; // Import de la bibliothèque Axios pour les requêtes HTTP
-import React, { useEffect, useState } from 'react'; // Import des hooks useEffect et useState depuis React
-import Pagination from '../../../components/Pagination/Pagination'; // Import du composant Pagination depuis un chemin spécifique
+import axios from 'axios'; 
+import React, { useEffect, useState } from 'react'; 
+import Pagination from '../../../components/Pagination/Pagination'; 
 
 function ListPlayerView() {
     const [players, setPlayers] = useState([]); // État pour stocker la liste des joueurs
